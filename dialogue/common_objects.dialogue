@@ -1,0 +1,11 @@
+~ bookshelf
+: It's a bookshelf.
+=> END 
+
+~ desk
+: A desk with research papers strewn across it.
+=> END 
+
+~ chair
+: it's a chair. No time to sit down - you have an adventure to go on!
+=> END 

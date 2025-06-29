@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://54moef320mmk"]
+
+[ext_resource type="Script" uid="uid://deicjrqcejhc6" path="res://scripts/Skills System/Skill.gd" id="1_eme6t"]
+
+[resource]
+script = ExtResource("1_eme6t")
+skillname = "OUTPUT"
+skilldesc = "print()\\nused to output a value"
+examples = Array[Texture2D]([])
+resourcepath = "res://key resources/Skill Resources/Base Skills/skill_output.tres"

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://qyfrk3jh0pdr"
+path="res://.godot/imported/masters chamber interactions.dialogue-4296a0881bc469b6e371bc7409c41689.tres"
+
+[deps]
+
+source_file="res://dialogue/masters chamber interactions.dialogue"
+dest_files=["res://.godot/imported/masters chamber interactions.dialogue-4296a0881bc469b6e371bc7409c41689.tres"]
+
+[params]
+
+defaults=true

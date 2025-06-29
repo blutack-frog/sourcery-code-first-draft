@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Test" load_steps=2 format=3 uid="uid://boaqsa6nlx5rg"]
+
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="1_nau58"]
+
+[resource]
+script = ExtResource("1_nau58")
+inputs = Array[String](["100"])
+output = "The next number for the number 100 is 101.The previous number for the number 100 is 99."

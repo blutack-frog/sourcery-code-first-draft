@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Problem" load_steps=6 format=3 uid="uid://c7mxi1gvcauv4"]
+
+[ext_resource type="Script" uid="uid://dk4jy6itbiqc" path="res://scripts/Battle Scripts/Problem.gd" id="1_jeik5"]
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="2_f6t77"]
+[ext_resource type="Resource" uid="uid://85jyr3ych8em" path="res://key resources/Problem Resources/Problem 8 - Previous and next/Problem8_Test1.tres" id="2_q44ts"]
+[ext_resource type="Resource" uid="uid://dl46wruaaxp6f" path="res://key resources/Problem Resources/Problem 8 - Previous and next/Problem8_Test2.tres" id="3_vhqm0"]
+[ext_resource type="Resource" uid="uid://boaqsa6nlx5rg" path="res://key resources/Problem Resources/Problem 8 - Previous and next/Problem8_Test3.tres" id="4_1t2mo"]
+
+[resource]
+script = ExtResource("1_jeik5")
+description = "Write a program that reads an integer number and prints its previous and next numbers. See the examples below for the exact format your answers should take. There shouldn't be a space before the period.Remember that you can convert the numbers to strings using the function str. "
+tests = Array[ExtResource("2_f6t77")]([ExtResource("2_q44ts"), ExtResource("3_vhqm0"), ExtResource("4_1t2mo")])
+difficulty = 0

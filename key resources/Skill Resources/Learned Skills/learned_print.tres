@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="LearnedSkill" load_steps=5 format=3 uid="uid://q4dr810ljrcf"]
+
+[ext_resource type="Resource" uid="uid://54moef320mmk" path="res://key resources/Skill Resources/Base Skills/skill_output.tres" id="1_cbrgw"]
+[ext_resource type="Script" uid="uid://d2wfwoe84jlga" path="res://scripts/Skills System/LearnedSkill.gd" id="1_yf2q4"]
+[ext_resource type="Script" uid="uid://cb352oe20b7qd" path="res://scripts/Levels XP Health/Skill_XP_Manager.gd" id="3_jmmwg"]
+
+[sub_resource type="Resource" id="Resource_th7es"]
+script = ExtResource("3_jmmwg")
+skill_difficulty = 30
+currentXP = 0
+maxXP = 8
+currentLevel = 1
+maxLevel = 16
+levelSpeed = 3
+
+[resource]
+script = ExtResource("1_yf2q4")
+baseskill = ExtResource("1_cbrgw")
+skillXP = SubResource("Resource_th7es")

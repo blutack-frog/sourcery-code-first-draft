@@ -1,0 +1,64 @@
+
+
+~ talk
+if globalvars.has_asked_for_lesson:
+	=> at_shelf
+if not globalvars.has_talked_to_teacher and not globalvars.learned_print:
+	=> first_convo
+elif globalvars.has_talked_to_teacher and not globalvars.learned_print:
+	=> ask_lesson
+elif not globalvars.has_talked_to_teacher and globalvars.learned_print:
+	Teacher: Oh! You must be my new student.
+	Teacher: I see you've taught yourself the print() skill by poking around the bookshelves.
+	Teacher: Good! Curiosity is a great trait for any apprentice.
+	set globalvars.has_talked_to_teacher = true
+else:
+	=> learned_print
+=> END
+	
+		
+~ first_convo
+Teacher: I see you're awake. Did you sleep well?
+- Yes
+	Teacher: Good, I'm glad to hear it.
+- No
+	Teacher: I'm sorry to hear that, but no wonder.
+Teacher: It must be difficult to come move to this tower to be my apprentice, when you are so young.
+Teacher: Regardless, you are here now and we will make the best of it.
+set globalvars.has_talked_to_teacher = true
+=> ask_lesson
+
+		
+~ ask_lesson
+Teacher: Shall we begin your first lesson?
+- Yes, let's start!
+	Teacher: Excellent! come with me.
+	set globalvars.has_asked_for_lesson = true
+	do get_object("teacher").walk([241,72])
+	[wait=0.2]
+	do player.set_dest([224,70])
+	do player.walk()
+	[wait=3]
+	=> at_shelf
+	#they walk to the bookcase and so do you
+- I'm not ready yet
+	Teacher: Take your time. I'll be here when you're ready.
+=> END
+	
+~ at_shelf
+if not globalvars.learned_print:
+	Teacher: This book is a SKILLPOINT
+	Teacher: It will teach you a new SKILL. Go on, try it!
+else:
+	=> learned_print
+=> END
+
+~ learned_print
+Teacher: I am so proud of you, my young student.
+if not globalvars.has_tower_key:
+	Teacher: Take this key - it unlocks the door to the tower.
+	Teacher: Make your way down to the bottom. It'll be exciting!
+	set globalvars.has_tower_key = true
+else:
+	Take that key and make your way to the bottom of the tower.
+=> END

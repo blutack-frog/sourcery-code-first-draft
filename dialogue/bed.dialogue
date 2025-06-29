@@ -1,0 +1,12 @@
+~ save
+: it's a comfy looking bed.
+: sleep? (this will save your game)
+- Yes
+	: you take a nap.
+	do global.confirm_interaction.emit()
+	: GAME SAVED
+	=> END 
+- No
+	: you decide not to sleep right now
+
+=> END

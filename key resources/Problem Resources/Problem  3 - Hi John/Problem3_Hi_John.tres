@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Problem" load_steps=6 format=3 uid="uid://d3lt28gjatr8r"]
+
+[ext_resource type="Script" uid="uid://dk4jy6itbiqc" path="res://scripts/Battle Scripts/Problem.gd" id="1_bdeg8"]
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="2_bdbx3"]
+[ext_resource type="Resource" uid="uid://bfa4f51oq3dxo" path="res://key resources/Problem Resources/Problem  3 - Hi John/Problem3_Test1.tres" id="2_lmo2k"]
+[ext_resource type="Resource" uid="uid://cea6sai5831up" path="res://key resources/Problem Resources/Problem  3 - Hi John/Problem3_Test2.tres" id="3_60nkk"]
+[ext_resource type="Resource" uid="uid://6b6r2cibu3fo" path="res://key resources/Problem Resources/Problem  3 - Hi John/Problem3_Test3.tres" id="4_frm6l"]
+
+[resource]
+script = ExtResource("1_bdeg8")
+description = "Write a program that greets the person by printing the word \"Hi\" and the name of the person."
+tests = Array[ExtResource("2_bdbx3")]([ExtResource("2_lmo2k"), ExtResource("3_60nkk"), ExtResource("4_frm6l")])
+difficulty = 0

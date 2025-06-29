@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://dat826qb40nh3"]
+
+[ext_resource type="Script" uid="uid://deicjrqcejhc6" path="res://scripts/Skills System/Skill.gd" id="1_8bwcw"]
+
+[resource]
+script = ExtResource("1_8bwcw")
+skillname = "concatenation"
+skilldesc = "using + to join two strings together"
+examples = Array[Texture2D]([])
+resourcepath = "res://key resources/Skill Resources/Base Skills/skill_concatenation.tres"

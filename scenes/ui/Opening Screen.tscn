@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvy5lstx4ojwh"]
+
+[ext_resource type="Script" uid="uid://c088kru3tl5d4" path="res://scripts/Scene System/opening_script.gd" id="1_s21gg"]
+
+[node name="OpeningScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s21gg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027451, 0.282353, 0.682353, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_NewGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "NEW GAME"
+
+[node name="Button_LoadGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "LOAD GAME"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.0
+offset_top = 192.0
+offset_right = 74.0
+offset_bottom = 215.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "THE SOURCERY CODE"
+
+[connection signal="pressed" from="VBoxContainer/Button_NewGame" to="." method="new_game"]
+[connection signal="pressed" from="VBoxContainer/Button_LoadGame" to="." method="load_game"]

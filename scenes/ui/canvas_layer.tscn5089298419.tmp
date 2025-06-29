@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3kvbv7gxmmty"]
+
+[ext_resource type="Script" uid="uid://gsqiabddsnqy" path="res://scripts/UI_Manager.gd" id="1_x473x"]
+[ext_resource type="PackedScene" uid="uid://i2fm0hby1vch" path="res://scenes/ui/GUI_Book.tscn" id="2_auekj"]
+[ext_resource type="PackedScene" uid="uid://do80mwa4182pu" path="res://scenes/ui/Pause Menu.tscn" id="3_wasvp"]
+[ext_resource type="Texture2D" uid="uid://cy1q33r6umevl" path="res://UI assets/screen_UI/book_icon.png" id="4_2vywx"]
+[ext_resource type="Texture2D" uid="uid://clwmbqtymmgms" path="res://UI assets/screen_UI/screen_inventory/5.png" id="5_errwt"]
+[ext_resource type="Script" uid="uid://bfl12epv44o2l" path="res://scripts/UI/screen_invtry.gd" id="6_errwt"]
+[ext_resource type="PackedScene" uid="uid://bsa6wj845p8xc" path="res://scenes/ui/inventory_slot.tscn" id="6_tcrln"]
+[ext_resource type="Texture2D" uid="uid://ckyvkwa066k0y" path="res://UI assets/screen_UI/screen_inventory/11.png" id="8_tcrln"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_x473x")
+
+[node name="GuiBook" parent="." instance=ExtResource("2_auekj")]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_wasvp")]
+visible = false
+
+[node name="book_button" type="TextureButton" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -95.0
+offset_right = 104.0
+offset_bottom = -7.0
+grow_vertical = 0
+texture_normal = ExtResource("4_2vywx")
+texture_pressed = ExtResource("4_2vywx")
+texture_hover = ExtResource("4_2vywx")
+texture_disabled = ExtResource("4_2vywx")
+texture_focused = ExtResource("4_2vywx")
+
+[node name="invntry_button" type="TextureButton" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 111.0
+offset_top = -92.0
+offset_right = 161.0
+offset_bottom = -42.0
+grow_vertical = 0
+texture_normal = ExtResource("5_errwt")
+texture_pressed = ExtResource("5_errwt")
+texture_hover = ExtResource("5_errwt")
+texture_disabled = ExtResource("5_errwt")
+texture_focused = ExtResource("5_errwt")
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="invntry_button"]
+modulate = Color(0.687215, 0.687215, 0.687215, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 67.0
+offset_bottom = 64.0
+texture = ExtResource("5_errwt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+offset_left = 111.0
+offset_top = 628.0
+offset_right = 619.0
+offset_bottom = 688.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("6_errwt")
+
+[node name="Inventory_Slot" parent="MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot2" parent="MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot3" parent="MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot4" parent="MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot5" parent="MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot6" parent="MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot7" parent="MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot8" parent="MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("8_tcrln")
+
+[connection signal="pressed" from="book_button" to="." method="_input" binds= ["open_book"]]
+[connection signal="pressed" from="invntry_button" to="." method="open_inventory"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/TextureButton" to="." method="close_inventory"]

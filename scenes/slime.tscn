@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3nauswoptaxl"]
+
+[ext_resource type="Script" uid="uid://dma0b8eemvu0" path="res://scripts/Interactables/enemy.gd" id="1_bdbe5"]
+[ext_resource type="SpriteFrames" uid="uid://3q0ytrkaa5ef" path="res://sprites/characters/slime_anim.tres" id="2_db613"]
+[ext_resource type="Resource" uid="uid://c1pwe8i4al0fp" path="res://key resources/Enemy Resources/Enemy_Slime.tres" id="2_haavq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yw2pi"]
+radius = 6.0
+
+[node name="slime" type="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(0, -8)
+script = ExtResource("1_bdbe5")
+enemy_res = ExtResource("2_haavq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = ExtResource("2_db613")
+animation = &"idle_front"
+autoplay = "idle_front"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_yw2pi")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

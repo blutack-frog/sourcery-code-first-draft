@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Test" load_steps=2 format=3 uid="uid://62pnmsh84okw"]
+
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="1_ufcdm"]
+
+[resource]
+script = ExtResource("1_ufcdm")
+inputs = Array[String](["17", "19", "18"])
+output = "28"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="HealthManager" load_steps=2 format=3 uid="uid://d4jxmj3vvd71g"]
+
+[ext_resource type="Script" uid="uid://eou82oj53s0q" path="res://scripts/Levels XP Health/Health_Manager.gd" id="1_5s26s"]
+
+[resource]
+script = ExtResource("1_5s26s")
+maxHealth = 5
+currentHealth = 4

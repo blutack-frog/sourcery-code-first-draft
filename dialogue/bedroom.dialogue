@@ -1,0 +1,11 @@
+~ bed
+: your bed. Go to sleep?
+- yes
+	: you feel refreshed!
+	#regain hp
+- no
+=> END 
+
+~ bookshelf
+: a collection of your favourite books is on the shelves. The Colour of Magic, Assassin's Apprentice... good stuff!
+=> END 

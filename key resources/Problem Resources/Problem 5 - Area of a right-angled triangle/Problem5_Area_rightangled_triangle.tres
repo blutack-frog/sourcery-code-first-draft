@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Problem" load_steps=6 format=3 uid="uid://dvc6asr8uvupe"]
+
+[ext_resource type="Script" uid="uid://dk4jy6itbiqc" path="res://scripts/Battle Scripts/Problem.gd" id="1_yayt4"]
+[ext_resource type="Resource" uid="uid://dxv6sq5yuvv0k" path="res://key resources/Problem Resources/Problem 5 - Area of a right-angled triangle/Problem5_Test1.tres" id="2_82m8r"]
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="2_jo053"]
+[ext_resource type="Resource" uid="uid://1pc5w5o3psbd" path="res://key resources/Problem Resources/Problem 5 - Area of a right-angled triangle/Problem5_Test2.tres" id="3_tayc5"]
+[ext_resource type="Resource" uid="uid://bpfvejgkt8l15" path="res://key resources/Problem Resources/Problem 5 - Area of a right-angled triangle/Problem5_Test3.tres" id="4_k2aa6"]
+
+[resource]
+script = ExtResource("1_yayt4")
+description = "Write a program that reads the length of the base and the height of a right-angled triangle and prints the area. Every number is given on a separate line. "
+tests = Array[ExtResource("2_jo053")]([ExtResource("2_82m8r"), ExtResource("3_tayc5"), ExtResource("4_k2aa6")])
+difficulty = 0

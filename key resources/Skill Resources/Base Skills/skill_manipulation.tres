@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://cdhx0dp50mkrg"]
+
+[ext_resource type="Script" uid="uid://deicjrqcejhc6" path="res://scripts/Skills System/Skill.gd" id="1_yyd6y"]
+
+[resource]
+script = ExtResource("1_yyd6y")
+skillname = "MANIPULATION"
+skilldesc = "the ability to manipulate lists and strings. includes...\\nlist.append(item)  adds an item\\nlist.remove(item)  removes an item\\nlist.insert(item,position)  inserts an item into a list at a position\\nlist.pop(position)  removes an item from a list given it's position in the list\\nlist.index(item)  gives the position of an item in the list\\nlist.sort()  sorts the list\\nlist.reverse()\\nlist.clear()  empties the list"
+examples = Array[Texture2D]([])
+resourcepath = "res://key resources/Skill Resources/Base Skills/skill_manipulation.tres"

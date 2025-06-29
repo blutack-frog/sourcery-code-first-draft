@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Problem" load_steps=6 format=3 uid="uid://bghanwib5cmlt"]
+
+[ext_resource type="Script" uid="uid://dk4jy6itbiqc" path="res://scripts/Battle Scripts/Problem.gd" id="1_u5sew"]
+[ext_resource type="Resource" uid="uid://crujxc6dr14wb" path="res://key resources/Problem Resources/Problem 2 - sum of three numbers/Problem2_Test1.tres" id="2_fh8gw"]
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="2_laht8"]
+[ext_resource type="Resource" uid="uid://c8v6yaq5rs000" path="res://key resources/Problem Resources/Problem 2 - sum of three numbers/Problem2_Test2.tres" id="3_72nnr"]
+[ext_resource type="Resource" uid="uid://bk5t7v8q6mvyd" path="res://key resources/Problem Resources/Problem 2 - sum of three numbers/Problem2_Test3.tres" id="4_ud4qh"]
+
+[resource]
+script = ExtResource("1_u5sew")
+description = "Write a program that takes three numbers and prints their sum. Every number is given on a separate line. "
+tests = Array[ExtResource("2_laht8")]([ExtResource("2_fh8gw"), ExtResource("3_72nnr"), ExtResource("4_ud4qh")])
+difficulty = 0

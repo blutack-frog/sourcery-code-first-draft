@@ -1,0 +1,197 @@
+[gd_scene load_steps=16 format=3 uid="uid://c7tduuhow016u"]
+
+[ext_resource type="Script" uid="uid://c8fs8em44h085" path="res://scripts/UI/booktab_stats.gd" id="1_81yke"]
+[ext_resource type="Texture2D" uid="uid://b4fsttfokpatr" path="res://UI assets/inventory book ui/1.png" id="2_7grbg"]
+[ext_resource type="SpriteFrames" uid="uid://c8k0kosnxxcmn" path="res://sprites/characters/wizard_sprites/wizard_sprite_frames.tres" id="2_cbxpg"]
+[ext_resource type="PackedScene" uid="uid://doc5w4444rku6" path="res://scenes/ui/health_display.tscn" id="3_gy50k"]
+[ext_resource type="FontFile" uid="uid://be672bxbmis8c" path="res://UI assets/PeaberryBase.ttf" id="4_2clbv"]
+[ext_resource type="PackedScene" uid="uid://dngwm8d1e2g8x" path="res://scenes/ui/xp_display.tscn" id="4_4n14a"]
+[ext_resource type="PackedScene" uid="uid://cvtskce3l1ldv" path="res://scenes/ui/badge_slot.tscn" id="5_3tfki"]
+[ext_resource type="Texture2D" uid="uid://dso20nak8x021" path="res://UI assets/inventory book ui/10.png" id="5_mm1t1"]
+[ext_resource type="FontFile" uid="uid://deg6jbyqcm3e0" path="res://UI assets/inventory book ui/PeaberryBase.ttf" id="7_n3ppw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8aqd0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjl67"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2sfb5"]
+texture = ExtResource("2_7grbg")
+region_rect = Rect2(2767, 3999, 98, 98)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hxit4"]
+texture = ExtResource("2_7grbg")
+region_rect = Rect2(2901, 3893, 86, 86)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ocjk2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1juld"]
+
+[node name="stats_panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -448.0
+offset_bottom = -185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8aqd0")
+script = ExtResource("1_81yke")
+
+[node name="left_page" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 35.0
+offset_right = 392.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cjl67")
+
+[node name="MarginContainer" type="MarginContainer" parent="left_page"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="left_page/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="left_page/MarginContainer/VBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_2sfb5")
+
+[node name="PanelContainer" type="PanelContainer" parent="left_page/MarginContainer/VBox/PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hxit4")
+
+[node name="CenterContainer" type="CenterContainer" parent="left_page/MarginContainer/VBox/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Sprite2" type="AnimatedSprite2D" parent="left_page/MarginContainer/VBox/PanelContainer/CenterContainer"]
+scale = Vector2(7.8125, 8.2915)
+sprite_frames = ExtResource("2_cbxpg")
+animation = &"idle_front"
+autoplay = "idle_front"
+
+[node name="Panel" type="Panel" parent="left_page/MarginContainer/VBox/PanelContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ocjk2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="left_page/MarginContainer/VBox/PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="left_page/MarginContainer/VBox/PanelContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_fonts/font = ExtResource("4_2clbv")
+theme_override_font_sizes/font_size = 26
+text = "LEVEL : "
+vertical_alignment = 1
+
+[node name="level" type="Label" parent="left_page/MarginContainer/VBox/PanelContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_fonts/font = ExtResource("4_2clbv")
+theme_override_font_sizes/font_size = 28
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="left_page/MarginContainer/VBox/PanelContainer/Panel"]
+position = Vector2(49.5, 40)
+scale = Vector2(2.82, 2.5)
+texture = ExtResource("5_mm1t1")
+region_enabled = true
+region_rect = Rect2(324, 424, 50, 5)
+
+[node name="HealthDisplay" parent="left_page/MarginContainer/VBox" instance=ExtResource("3_gy50k")]
+layout_mode = 2
+
+[node name="XPDisplay" parent="left_page/MarginContainer/VBox" instance=ExtResource("4_4n14a")]
+layout_mode = 2
+
+[node name="right_page" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = 35.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1juld")
+
+[node name="MarginContainer" type="MarginContainer" parent="right_page"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="right_page/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="right_page/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_fonts/font = ExtResource("7_n3ppw")
+theme_override_font_sizes/font_size = 60
+text = "BADGES "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="right_page/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Badge_Slot" parent="right_page/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("5_3tfki")]
+layout_mode = 2
+
+[node name="Badge_Slot2" parent="right_page/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("5_3tfki")]
+layout_mode = 2
+
+[node name="Badge_Slot3" parent="right_page/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("5_3tfki")]
+layout_mode = 2
+
+[node name="Badge_Slot4" parent="right_page/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("5_3tfki")]
+layout_mode = 2
+
+[node name="Badge_Slot5" parent="right_page/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("5_3tfki")]
+layout_mode = 2
+
+[node name="Badge_Slot6" parent="right_page/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("5_3tfki")]
+layout_mode = 2
+
+[node name="Badge_Slot7" parent="right_page/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("5_3tfki")]
+layout_mode = 2
+
+[node name="Badge_Slot8" parent="right_page/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("5_3tfki")]
+layout_mode = 2
+
+[node name="Badge_Slot9" parent="right_page/MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("5_3tfki")]
+layout_mode = 2

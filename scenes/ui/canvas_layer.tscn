@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3kvbv7gxmmty"]
+
+[ext_resource type="Script" uid="uid://gsqiabddsnqy" path="res://scripts/UI_Manager.gd" id="1_x473x"]
+[ext_resource type="PackedScene" uid="uid://i2fm0hby1vch" path="res://scenes/ui/GUI_Book.tscn" id="2_auekj"]
+[ext_resource type="PackedScene" uid="uid://do80mwa4182pu" path="res://scenes/ui/Pause Menu.tscn" id="3_wasvp"]
+[ext_resource type="Texture2D" uid="uid://cy1q33r6umevl" path="res://UI assets/screen_UI/book_icon.png" id="4_2vywx"]
+[ext_resource type="Texture2D" uid="uid://ceo64gbaj5jsm" path="res://UI assets/screen_UI/screen_inventory/5.png" id="5_errwt"]
+[ext_resource type="Script" uid="uid://bfl12epv44o2l" path="res://scripts/UI/screen_invtry.gd" id="6_errwt"]
+[ext_resource type="Texture2D" uid="uid://clwmbqtymmgms" path="res://UI assets/screen_UI/screen_inventory/highlight.png" id="6_s6boh"]
+[ext_resource type="PackedScene" uid="uid://bsa6wj845p8xc" path="res://scenes/ui/inventory_slot.tscn" id="6_tcrln"]
+[ext_resource type="Texture2D" uid="uid://ckyvkwa066k0y" path="res://UI assets/screen_UI/screen_inventory/close.png" id="8_tcrln"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_x473x")
+
+[node name="GuiBook" parent="." instance=ExtResource("2_auekj")]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_wasvp")]
+visible = false
+
+[node name="book_button" type="TextureButton" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -95.0
+offset_right = 104.0
+offset_bottom = -7.0
+grow_vertical = 0
+texture_normal = ExtResource("4_2vywx")
+texture_pressed = ExtResource("4_2vywx")
+texture_hover = ExtResource("4_2vywx")
+texture_disabled = ExtResource("4_2vywx")
+texture_focused = ExtResource("4_2vywx")
+
+[node name="invntry_button" type="TextureButton" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 111.0
+offset_top = -92.0
+offset_right = 161.0
+offset_bottom = -42.0
+grow_vertical = 0
+texture_normal = ExtResource("5_errwt")
+texture_pressed = ExtResource("6_s6boh")
+texture_hover = ExtResource("6_s6boh")
+texture_disabled = ExtResource("6_s6boh")
+texture_focused = ExtResource("6_s6boh")
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="invntry_button"]
+modulate = Color(0.687215, 0.687215, 0.687215, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 67.0
+offset_bottom = 64.0
+texture = ExtResource("5_errwt")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="Node"]
+offset_left = 111.0
+offset_top = 558.0
+offset_right = 639.0
+offset_bottom = 618.0
+script = ExtResource("6_errwt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Inventory_Slot" parent="Node/MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot2" parent="Node/MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot3" parent="Node/MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot4" parent="Node/MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot5" parent="Node/MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot6" parent="Node/MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot7" parent="Node/MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="Inventory_Slot8" parent="Node/MarginContainer/HBoxContainer" instance=ExtResource("6_tcrln")]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Node/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("8_tcrln")
+
+[node name="current_item_highlight" type="TextureRect" parent="Node"]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+offset_left = 209.0
+offset_top = 598.0
+offset_right = 329.0
+offset_bottom = 718.0
+texture = ExtResource("6_s6boh")
+expand_mode = 2
+
+[connection signal="pressed" from="book_button" to="." method="open_book"]
+[connection signal="pressed" from="invntry_button" to="." method="open_inventory"]
+[connection signal="pressed" from="Node/MarginContainer/TextureButton" to="." method="close_inventory"]

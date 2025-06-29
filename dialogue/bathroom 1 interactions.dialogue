@@ -1,0 +1,15 @@
+~ sink
+: a sink. Wash your hands?
+- wash hands
+	: you run your hands under the water. nice and clean!
+- don't wash hands
+	: ... you feel like you hear a slightly judgemental voice tutting in the distance. You don't wash your hands.
+=> END
+
+~ bath
+: still spotless from when your teacher had you clean it last week.
+=> END
+
+~ toilet
+: you don't need to use this right now.
+=> END

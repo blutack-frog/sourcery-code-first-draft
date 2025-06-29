@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=8 format=3 uid="uid://bxxuw6bxb2jy2"]
+
+[ext_resource type="Script" uid="uid://wylm8rej77nk" path="res://scripts/Battle Scripts/Enemy_res.gd" id="1_apgeb"]
+[ext_resource type="Script" uid="uid://eou82oj53s0q" path="res://scripts/Levels XP Health/Health_Manager.gd" id="1_ke3cu"]
+[ext_resource type="Script" uid="uid://dk4jy6itbiqc" path="res://scripts/Battle Scripts/Problem.gd" id="2_nuod4"]
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="3_ghmef"]
+
+[sub_resource type="Resource" id="Resource_kl5qe"]
+script = ExtResource("1_ke3cu")
+maxHealth = 1
+currentHealth = 1
+
+[sub_resource type="Resource" id="Resource_2ekid"]
+script = ExtResource("3_ghmef")
+inputs = Array[String]([])
+output = "hello world!"
+
+[sub_resource type="Resource" id="Resource_kfa17"]
+script = ExtResource("2_nuod4")
+description = "Write a piece of code that will say \"hello world!\""
+tests = Array[ExtResource("3_ghmef")]([SubResource("Resource_2ekid")])
+difficulty = 40
+
+[resource]
+script = ExtResource("1_apgeb")
+enemyName = "The World"
+problem = SubResource("Resource_kfa17")
+level = 1
+health = SubResource("Resource_kl5qe")
+xpyield = 40
+startingCode = "print(\"goodbye world...\")"

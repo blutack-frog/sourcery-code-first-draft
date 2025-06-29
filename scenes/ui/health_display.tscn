@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://doc5w4444rku6"]
+
+[ext_resource type="Script" uid="uid://c07is3x2ug3nj" path="res://scripts/UI/bar_displayUI.gd" id="1_kxqxg"]
+[ext_resource type="Texture2D" uid="uid://bgfs0ypdlrh46" path="res://sprites/ui/hearticon.png" id="1_ra183"]
+[ext_resource type="Script" uid="uid://b60wal08mkygh" path="res://scripts/UI/Bar.gd" id="2_vwn6y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7m5iq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_om6yq"]
+bg_color = Color(0.154876, 0.154876, 0.154876, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgh15"]
+bg_color = Color(0.796078, 0, 0.14902, 1)
+
+[node name="HealthDisplay" type="Panel"]
+custom_minimum_size = Vector2(0, 50)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7m5iq")
+script = ExtResource("1_kxqxg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_ra183")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -23.0
+offset_right = 22.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar" type="Panel" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_om6yq")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="bar_health" type="Panel" parent="MarginContainer/HBoxContainer/HealthBar/MarginContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lgh15")
+script = ExtResource("2_vwn6y")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/HealthBar/MarginContainer/bar_health"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 40.0
+grow_vertical = 2
+
+[node name="currentHP" type="Label" parent="MarginContainer/HBoxContainer/HealthBar/MarginContainer/bar_health/HBoxContainer"]
+layout_mode = 2
+text = "5"
+
+[node name="slash" type="Label" parent="MarginContainer/HBoxContainer/HealthBar/MarginContainer/bar_health/HBoxContainer"]
+layout_mode = 2
+text = "/"
+
+[node name="maxHP" type="Label" parent="MarginContainer/HBoxContainer/HealthBar/MarginContainer/bar_health/HBoxContainer"]
+layout_mode = 2
+text = "5"

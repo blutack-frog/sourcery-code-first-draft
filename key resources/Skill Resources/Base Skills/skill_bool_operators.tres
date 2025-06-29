@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://bgsan27ng5pid"]
+
+[ext_resource type="Script" uid="uid://deicjrqcejhc6" path="res://scripts/Skills System/Skill.gd" id="1_kewba"]
+
+[resource]
+script = ExtResource("1_kewba")
+skillname = "BOOLEAN OPERATORS"
+skilldesc = "Will evaGoes between two values. Will evaluate a condition to TRUE if...\\nand : both values are true\\nor : either value is true\\nnot : goes before a value. evaluates to true if that value was false"
+examples = Array[Texture2D]([])
+resourcepath = "res://key resources/Skill Resources/Base Skills/skill_bool_operators.tres"

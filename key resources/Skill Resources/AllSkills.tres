@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="AllSkills" load_steps=17 format=3 uid="uid://lpi4ie8rfhtk"]
+
+[ext_resource type="Script" uid="uid://deicjrqcejhc6" path="res://scripts/Skills System/Skill.gd" id="1_ep4r8"]
+[ext_resource type="Script" uid="uid://cxef60l84i3on" path="res://scripts/Skills System/AllSkills.gd" id="1_je56i"]
+[ext_resource type="Resource" uid="uid://cjny4je8lpdt" path="res://key resources/Skill Resources/Base Skills/skill_adv_selection.tres" id="1_sq0r6"]
+[ext_resource type="Resource" uid="uid://77fcpd4iiubi" path="res://key resources/Skill Resources/Base Skills/skill_bool_comparators.tres" id="2_gbnv1"]
+[ext_resource type="Resource" uid="uid://v61feaqby2tb" path="res://key resources/Skill Resources/Base Skills/skill_input.tres" id="2_rmabd"]
+[ext_resource type="Resource" uid="uid://bgsan27ng5pid" path="res://key resources/Skill Resources/Base Skills/skill_bool_operators.tres" id="3_wj1vy"]
+[ext_resource type="Resource" uid="uid://bcbial5turb7o" path="res://key resources/Skill Resources/Base Skills/skill_casting.tres" id="4_h8h3d"]
+[ext_resource type="Resource" uid="uid://bfm3bkjkmuimn" path="res://key resources/Skill Resources/Base Skills/skill_condition_iteration.tres" id="5_ecavn"]
+[ext_resource type="Resource" uid="uid://b3hla7vrutt7i" path="res://key resources/Skill Resources/Base Skills/skill_count_iteration.tres" id="6_ppi7s"]
+[ext_resource type="Resource" uid="uid://b2ticp24igsu1" path="res://key resources/Skill Resources/Base Skills/skill_lists.tres" id="8_ybx2u"]
+[ext_resource type="Resource" uid="uid://cdhx0dp50mkrg" path="res://key resources/Skill Resources/Base Skills/skill_manipulation.tres" id="9_03o2s"]
+[ext_resource type="Resource" uid="uid://bnpgx6gqcr6b3" path="res://key resources/Skill Resources/Base Skills/skill_numeracy.tres" id="10_kbo4d"]
+[ext_resource type="Resource" uid="uid://54moef320mmk" path="res://key resources/Skill Resources/Base Skills/skill_output.tres" id="11_f6ope"]
+[ext_resource type="Resource" uid="uid://dyvpo1li5mb12" path="res://key resources/Skill Resources/Base Skills/skill_selection.tres" id="12_5ibe0"]
+[ext_resource type="Resource" uid="uid://c6kd7wkmcd63d" path="res://key resources/Skill Resources/Base Skills/skill_strings.tres" id="13_nfc2r"]
+[ext_resource type="Resource" uid="uid://dt0f205jfae0c" path="res://key resources/Skill Resources/Base Skills/skill_variables.tres" id="14_qgtxs"]
+
+[resource]
+script = ExtResource("1_je56i")
+allSkills = Array[ExtResource("1_ep4r8")]([ExtResource("1_sq0r6"), ExtResource("2_gbnv1"), ExtResource("3_wj1vy"), ExtResource("4_h8h3d"), ExtResource("5_ecavn"), ExtResource("6_ppi7s"), ExtResource("2_rmabd"), ExtResource("8_ybx2u"), ExtResource("9_03o2s"), ExtResource("10_kbo4d"), ExtResource("11_f6ope"), ExtResource("12_5ibe0"), ExtResource("13_nfc2r"), ExtResource("14_qgtxs")])
+searchableSkills = {
+" and ": "BOOLEAN OPERATORS",
+" not ": "BOOLEAN OPERATORS",
+" or ": "BOOLEAN OPERATORS",
+"!=": "BOOLEAN COMPARATORS",
+"%": "NUMERACY",
+"*": "NUMERACY",
+"-": "NUMERACY",
+".append(": "MANIPULATION",
+".clear(": "MANIPULATION",
+".count(": "STRINGS",
+".find(": "STRINGS",
+".index(": "MANIPULATION",
+".insert(": "MANIPULATION",
+".len(": "STRINGS",
+".pop(": "MANIPULATION",
+".remove(": "MANIPULATION",
+".reverse(": "MANIPULATION",
+".sort(": "MANIPULATION",
+"/": "NUMERACY",
+"//": "NUMERACY",
+"<": "BOOLEAN COMPARATORS",
+"=": "VARIABLES",
+"==": "BOOLEAN COMPARATORS",
+">": "BOOLEAN COMPARATORS",
+"[": "LISTS",
+"bool(": "CASTING",
+"elif ": "ADVANCED SELECTION",
+"else": "ADVANCED SELECTION",
+"float(": "CASTING",
+"for ": "COUNT ITERATION",
+"if ": "SELECTION",
+"input(": "USER INPUT",
+"int(": "CASTING",
+"print(": "OUTPUT",
+"str(": "CASTING",
+"while ": "CONDITIONAL ITERATION"
+}

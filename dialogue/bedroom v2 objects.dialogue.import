@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://3ji0ts7xsl68"
+path="res://.godot/imported/bedroom v2 objects.dialogue-8cacc2bf4de1bd848f49b39da0c358a6.tres"
+
+[deps]
+
+source_file="res://dialogue/bedroom v2 objects.dialogue"
+dest_files=["res://.godot/imported/bedroom v2 objects.dialogue-8cacc2bf4de1bd848f49b39da0c358a6.tres"]
+
+[params]
+
+defaults=true

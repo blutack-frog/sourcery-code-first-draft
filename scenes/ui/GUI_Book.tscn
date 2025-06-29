@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://i2fm0hby1vch"]
+
+[ext_resource type="PackedScene" uid="uid://c7tduuhow016u" path="res://scenes/ui/booktab_stats.tscn" id="1_ke5bg"]
+[ext_resource type="Script" uid="uid://do1efxa537rx2" path="res://scripts/UI/GUI_Book.gd" id="1_w23pn"]
+[ext_resource type="Texture2D" uid="uid://cn4rxilyas0cy" path="res://UI assets/book/Book Idle/1.png" id="2_4vvhs"]
+[ext_resource type="Theme" uid="uid://ctp3jb5jhifqh" path="res://UI assets/book theme.tres" id="2_ck6cm"]
+[ext_resource type="PackedScene" uid="uid://ca4bkjjuxt05u" path="res://scenes/ui/booktab_inventory.tscn" id="2_ncdmk"]
+[ext_resource type="PackedScene" uid="uid://c48av0vtgg61s" path="res://scenes/ui/booktab_skills.tscn" id="3_62yap"]
+[ext_resource type="SpriteFrames" uid="uid://1iywo2b5xea2" path="res://UI assets/book/BookAnimations.tres" id="7_nsp2t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pfyqw"]
+texture = ExtResource("2_4vvhs")
+region_rect = Rect2(104, 163, 689, 454)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ba2i"]
+
+[node name="GuiBook" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w23pn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -443.0
+offset_top = -317.0
+offset_right = 478.0
+offset_bottom = 337.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ck6cm")
+theme_type_variation = &"BookPanel"
+theme_override_styles/panel = SubResource("StyleBoxTexture_pfyqw")
+
+[node name="TabContainer" type="TabContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = 1.0
+offset_right = -44.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7ba2i")
+tab_alignment = 2
+current_tab = 1
+
+[node name="Stats" type="TabBar" parent="Panel/TabContainer"]
+visible = false
+layout_mode = 2
+tab_alignment = 2
+metadata/_tab_index = 0
+
+[node name="booktab_stats" parent="Panel/TabContainer/Stats" instance=ExtResource("1_ke5bg")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Inventory" type="TabBar" parent="Panel/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="stats_panel" parent="Panel/TabContainer/Inventory" instance=ExtResource("2_ncdmk")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Skills" type="TabBar" parent="Panel/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="skills_panel" parent="Panel/TabContainer/Skills" instance=ExtResource("3_62yap")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel"]
+visible = false
+position = Vector2(457.5, 281)
+scale = Vector2(1.32924, 1.43333)
+sprite_frames = ExtResource("7_nsp2t")
+animation = &"open"
+autoplay = "open"

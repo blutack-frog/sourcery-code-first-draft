@@ -1,0 +1,19 @@
+~ unlocked
+
+Chest: thank you for finding my key
+=> END
+
+~ locked
+Chest: [[Hi|Hello|Howdy]]... How may I help you?
+- i think i have something of yours
+	Chest: oh really?
+	- yes
+		if global.interactable_name in global.keys:
+			Chest: perfect!
+			do global.used_key.emit(global.interactable_name)
+		else:
+			Chest: no you don't
+		=> END
+	- no
+		Chest: well what are you talking to me for? => END
+-goodbye => END

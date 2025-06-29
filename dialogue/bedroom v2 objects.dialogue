@@ -1,0 +1,39 @@
+~ pick_up
+if pick_up_inventory == null:
+	: pick up key?
+	- Yes
+		: key added to inventory
+		do key.complete()
+		=> END 
+	- No
+		: you leave the key where it is
+		=> END 
+else:
+	: you can't pick this up for some reason. Maybe you need somewhere to store it?
+	=> END 
+
+~ inventory_full
+: YOU FOUND A {{global.interactable_name}}
+: YOUR INVENTORY IS FULL. YOU LEAVE IT WHERE IT IS
+=> END
+
+~ pickup_book
+: it's a book. Pick it up?
+- Yes
+	: you pick up the book. It's a blank spellbook, with space for all the spells you'll learn in future!
+	: you can open it by pressing the 'Tab' button
+	Kid: I wonder what a 'Tab' button is?
+	do pick_up_skillbook.complete()
+- No
+	: you leave the book where it is.
+=> END 
+
+~ pickup_inventory
+: it looks like... a set of squares? maybe for storing things? Pick it up?
+- Yes
+	: you pick up the set of squares. You feel it must be an INVENTORY.
+	: You can open it by pressing the 'E' button
+	do pick_up_inventory.complete()
+- No
+	: You leave the squares where they are
+=> END 

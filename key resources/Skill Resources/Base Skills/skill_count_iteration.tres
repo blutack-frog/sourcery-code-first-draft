@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://b3hla7vrutt7i"]
+
+[ext_resource type="Script" uid="uid://deicjrqcejhc6" path="res://scripts/Skills System/Skill.gd" id="1_1oq0p"]
+
+[resource]
+script = ExtResource("1_1oq0p")
+skillname = "ITERATION: COUNT"
+skilldesc = "for\\nwill loop a set number of times"
+examples = Array[Texture2D]([])
+resourcepath = "res://key resources/Skill Resources/Base Skills/skill_count_iteration.tres"

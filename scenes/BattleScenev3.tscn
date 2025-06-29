@@ -1,0 +1,493 @@
+[gd_scene load_steps=21 format=3 uid="uid://bgcc0e26vwthq"]
+
+[ext_resource type="Script" uid="uid://c4hansp18sc5" path="res://scripts/Battle Scripts/BattleUI_Manager.gd" id="1_mjm43"]
+[ext_resource type="Texture2D" uid="uid://b5debx4qoue8f" path="res://sprites/dungeon_background.jpg" id="2_bt0j2"]
+[ext_resource type="Resource" uid="uid://bknet2w6mwjjn" path="res://key resources/CodeRunner.tres" id="2_mvclu"]
+[ext_resource type="Script" uid="uid://bi6ut888o2nhd" path="res://scenes/player_ui.gd" id="3_2snj4"]
+[ext_resource type="PackedScene" uid="uid://doc5w4444rku6" path="res://scenes/ui/health_display.tscn" id="4_4y356"]
+[ext_resource type="PackedScene" uid="uid://dngwm8d1e2g8x" path="res://scenes/ui/xp_display.tscn" id="5_5stxa"]
+[ext_resource type="Texture2D" uid="uid://cjsu8g0een76y" path="res://sprites/ui/R.png" id="6_p8uvc"]
+[ext_resource type="Script" uid="uid://dnfvipd8vhwl1" path="res://scenes/Enemy_UI.gd" id="7_ddlh7"]
+[ext_resource type="Resource" uid="uid://c1pwe8i4al0fp" path="res://key resources/Enemy Resources/Enemy_Slime.tres" id="8_180ie"]
+[ext_resource type="SpriteFrames" uid="uid://3q0ytrkaa5ef" path="res://sprites/characters/slime_anim.tres" id="9_4dk2y"]
+[ext_resource type="PackedScene" uid="uid://b8dajgqp32h02" path="res://scenes/ui/test_panel.tscn" id="10_ic8kr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfc2x"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22v7n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meqj0"]
+bg_color = Color(0.252028, 0.252028, 0.252028, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljdnc"]
+bg_color = Color(0.678944, 0.678944, 0.678944, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcggw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tghb0"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_4pwex"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8h70"]
+bg_color = Color(0.157087, 0.120158, 0.393696, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pwto"]
+bg_color = Color(0.140447, 0.140447, 0.140447, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_mjm43")
+codeRunner = ExtResource("2_mvclu")
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 650.0
+offset_top = 360.0
+offset_right = 650.0
+offset_bottom = 360.0
+
+[node name="TextureRect2" type="Panel" parent="Background"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = -699.0
+offset_top = -431.0
+offset_right = 682.0
+offset_bottom = 399.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rfc2x")
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = -967.0
+offset_top = -459.0
+offset_right = 1010.0
+offset_bottom = 359.0
+texture = ExtResource("2_bt0j2")
+stretch_mode = 5
+
+[node name="Player" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("3_2snj4")
+
+[node name="PanelContainer" type="PanelContainer" parent="Player"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -359.0
+offset_top = -200.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_22v7n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PanelContainer"]
+layout_mode = 2
+
+[node name="Player_Info_Panel" type="Panel" parent="Player/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_meqj0")
+
+[node name="MarginContainer" type="MarginContainer" parent="Player/PanelContainer/VBoxContainer/Player_Info_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Player_Name" type="Label" parent="Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PLAYER_NAME"
+
+[node name="word_LVL" type="Label" parent="Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "LVL"
+horizontal_alignment = 2
+
+[node name="Player_Level" type="Label" parent="Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "3"
+horizontal_alignment = 2
+
+[node name="HealthDisplay" parent="Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer" instance=ExtResource("4_4y356")]
+layout_mode = 2
+
+[node name="XPDisplay" parent="Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer" instance=ExtResource("5_5stxa")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="Player/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "LVL"
+vertical_alignment = 1
+
+[node name="levelNum" type="Label" parent="Player/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "10"
+
+[node name="Sprite2D" type="TextureRect" parent="Player/PanelContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("6_p8uvc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Skill_Inventory Panel" type="Panel" parent="."]
+visible = false
+offset_left = 7.0
+offset_top = 276.0
+offset_right = 366.0
+offset_bottom = 623.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Skill_Inventory Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Skill_Inventory Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Skill_Inventory Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SKILLS/INVENTORY"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="Skill_Inventory Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ljdnc")
+text = "the inventory or skills will go here when opened."
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Button_Flee" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 85.0
+offset_top = -41.0
+offset_right = 255.0
+offset_bottom = -1.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dcggw")
+text = "FLEE"
+
+[node name="Button_Inventory" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -128.0
+offset_right = 159.0
+offset_bottom = -65.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dcggw")
+text = "INVENTORY"
+
+[node name="Button_Skills" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 178.0
+offset_top = -125.0
+offset_right = 327.0
+offset_bottom = -62.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dcggw")
+text = "SKILLS"
+
+[node name="Code_Panel" type="Panel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = -318.0
+offset_right = 256.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tghb0")
+
+[node name="MarginContainer" type="MarginContainer" parent="Code_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="CodeEdit" type="CodeEdit" parent="Code_Panel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/background_color = Color(0.791999, 0.791999, 0.791999, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0.140447, 0.140447, 0.140447, 1)
+placeholder_text = "#write your code here"
+caret_blink = true
+caret_multiple = false
+syntax_highlighter = SubResource("CodeHighlighter_4pwex")
+indent_automatic = true
+
+[node name="Button_Execute" type="Button" parent="Code_Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.5
+offset_top = 6.0
+offset_right = 70.5
+offset_bottom = 43.0
+grow_horizontal = 2
+text = "EXECUTE CODE"
+
+[node name="Enemy" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_right = -640.0
+grow_horizontal = 2
+script = ExtResource("7_ddlh7")
+enemyRes = ExtResource("8_180ie")
+
+[node name="Circle" type="Panel" parent="Enemy"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 503.0
+offset_top = 257.0
+offset_right = 803.0
+offset_bottom = 377.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8h70")
+
+[node name="Enemy_anim" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(649, 249.875)
+scale = Vector2(11.6719, 11.1328)
+sprite_frames = ExtResource("9_4dk2y")
+animation = &"idle_front"
+autoplay = "idle_front"
+
+[node name="Problem Description" type="Panel" parent="Enemy"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 35.0
+offset_right = 381.0
+offset_bottom = 234.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Enemy/Problem Description"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Enemy/Problem Description/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Enemy/Problem Description/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "PROBLEM DESCRIPTION"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="Enemy/Problem Description/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ljdnc")
+text = "this is where a description of the problem will be.
+It won't be that long, but it's important to explain the problem! Here I'm checking that this will work alright."
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Enemy_Info_Panel" type="Panel" parent="Enemy"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 434.0
+offset_top = 11.0
+offset_right = 888.0
+offset_bottom = 111.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_meqj0")
+
+[node name="MarginContainer" type="MarginContainer" parent="Enemy/Enemy_Info_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Enemy/Enemy_Info_Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Enemy/Enemy_Info_Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Enemy_Name" type="Label" parent="Enemy/Enemy_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ENEMY_NAME"
+
+[node name="word_LVL" type="Label" parent="Enemy/Enemy_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "LVL"
+horizontal_alignment = 2
+
+[node name="Enemy_Level" type="Label" parent="Enemy/Enemy_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "3"
+horizontal_alignment = 2
+
+[node name="HealthDisplay" parent="Enemy/Enemy_Info_Panel/MarginContainer/VBoxContainer" instance=ExtResource("4_4y356")]
+layout_mode = 2
+
+[node name="TestsPanel" type="Panel" parent="."]
+offset_left = 929.0
+offset_top = 14.0
+offset_right = 1242.0
+offset_bottom = 410.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TestsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TestsPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TestsPanel/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Test_Panel" parent="TestsPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ic8kr")]
+visible = false
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Test_Panel2" parent="TestsPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ic8kr")]
+visible = false
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Test_Panel3" parent="TestsPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_ic8kr")]
+visible = false
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="MessageBox" type="Panel" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -387.0
+offset_top = -131.0
+offset_right = 411.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7pwto")
+
+[node name="MarginContainer" type="MarginContainer" parent="MessageBox"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MessageBox/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "YOU DEALT 13 DAMAGE!"
+
+[connection signal="pressed" from="Button_Flee" to="." method="flee_button_pressed"]
+[connection signal="pressed" from="Code_Panel/Button_Execute" to="." method="run_code_button_pressed"]

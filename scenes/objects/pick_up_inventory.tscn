@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://f716t2qypa2q"]
+
+[ext_resource type="Texture2D" uid="uid://ceo64gbaj5jsm" path="res://UI assets/screen_UI/screen_inventory/5.png" id="1_5bqak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onafc"]
+size = Vector2(175, 32)
+
+[node name="pick_up_inventory" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(87.5, 16)
+shape = SubResource("RectangleShape2D_onafc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_5bqak")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_5bqak")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_5bqak")
+stretch_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_5bqak")
+stretch_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_5bqak")
+stretch_mode = 2

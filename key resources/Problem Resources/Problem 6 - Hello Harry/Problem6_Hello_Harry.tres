@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Problem" load_steps=6 format=3 uid="uid://dusd4hqolikdx"]
+
+[ext_resource type="Script" uid="uid://dk4jy6itbiqc" path="res://scripts/Battle Scripts/Problem.gd" id="1_hid3b"]
+[ext_resource type="Resource" uid="uid://cobpaa2iubaa2" path="res://key resources/Problem Resources/Problem 6 - Hello Harry/Problem6_Test1.tres" id="2_c533d"]
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="2_tj4ap"]
+[ext_resource type="Resource" uid="uid://y2072os7duyf" path="res://key resources/Problem Resources/Problem 6 - Hello Harry/Problem6_Test2.tres" id="3_qxime"]
+[ext_resource type="Resource" uid="uid://b67e5ookpywa0" path="res://key resources/Problem Resources/Problem 6 - Hello Harry/Problem6_Test3.tres" id="4_khtph"]
+
+[resource]
+script = ExtResource("1_hid3b")
+description = "Write a program that greets the user by printing the word \"Hello\", a comma, the name of the user and an exclamation mark after it. See the examples below.Warning. Your program's output should strictly match the desired one, character by character. There shouldn't be any space between the name and the exclamation mark. You can use + operator to concatenate two strings."
+tests = Array[ExtResource("2_tj4ap")]([ExtResource("2_c533d"), ExtResource("3_qxime"), ExtResource("4_khtph")])
+difficulty = 0

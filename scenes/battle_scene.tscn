@@ -1,0 +1,589 @@
+[gd_scene load_steps=11 format=3 uid="uid://50xwtsqd88us"]
+
+[ext_resource type="Script" uid="uid://dedvoau0dd8yp" path="res://scripts/Battle Scripts/battle_manager.gd" id="1_co5ii"]
+[ext_resource type="Texture2D" uid="uid://s53clxr20orr" path="res://sprites/characters/slime.png" id="2_48k7s"]
+[ext_resource type="Texture2D" uid="uid://b5debx4qoue8f" path="res://sprites/dungeon_background.jpg" id="2_sf81o"]
+[ext_resource type="Texture2D" uid="uid://bngotflv140re" path="res://sprites/characters/player.png" id="3_no85q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bcfp"]
+bg_color = Color(0.796709, 0.17993, 0.243424, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n66q"]
+atlas = ExtResource("2_48k7s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cb8n0"]
+bg_color = Color(0.107878, 0.440343, 0.839778, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48mt7"]
+atlas = ExtResource("3_no85q")
+region = Rect2(160, 112, 16, 24)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbcif"]
+bg_color = Color(0.336608, 0.336608, 0.336608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_usxr0"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Battle_scene" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_co5ii")
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = -299.0
+offset_top = -12.0
+offset_right = 2037.0
+offset_bottom = 1155.0
+texture = ExtResource("2_sf81o")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="inputs" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="gap" type="Control" parent="MarginContainer/HBoxContainer/inputs"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="buttons" type="HBoxContainer" parent="MarginContainer/HBoxContainer/inputs"]
+layout_mode = 2
+
+[node name="gap" type="Control" parent="MarginContainer/HBoxContainer/inputs/buttons"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Button_Exit" type="Button" parent="MarginContainer/HBoxContainer/inputs/buttons"]
+process_mode = 3
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+text = "RUN AWAY"
+
+[node name="gap2" type="Control" parent="MarginContainer/HBoxContainer/inputs/buttons"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Button_Run_Code" type="Button" parent="MarginContainer/HBoxContainer/inputs/buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+text = "CAST SPELL"
+
+[node name="gap3" type="Control" parent="MarginContainer/HBoxContainer/inputs/buttons"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="CodeEdit" type="CodeEdit" parent="MarginContainer/HBoxContainer/inputs"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/background_color = Color(0.834614, 0.834614, 0.834614, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.336608, 0.336608, 0.336608, 1)
+placeholder_text = "#write your code here..."
+
+[node name="gap2" type="Control" parent="MarginContainer/HBoxContainer/inputs"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="description_panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/inputs"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="Description" type="Label" parent="MarginContainer/HBoxContainer/inputs/description_panel"]
+layout_mode = 2
+text = "Write a piece of code that will add two numbers"
+autowrap_mode = 2
+
+[node name="gap3" type="Control" parent="MarginContainer/HBoxContainer/inputs"]
+custom_minimum_size = Vector2(10, 15)
+layout_mode = 2
+
+[node name="visuals_panel" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 26.0
+
+[node name="visuals" type="VSplitContainer" parent="MarginContainer/HBoxContainer/visuals_panel"]
+custom_minimum_size = Vector2(400, 720)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -42.0
+offset_right = 18.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 26.0
+
+[node name="enemy_ui" type="VBoxContainer" parent="MarginContainer/HBoxContainer/visuals_panel/visuals"]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="gap" type="Control" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/enemy_ui"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/enemy_ui"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/enemy_ui/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/enemy_ui/HBoxContainer"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_0bcfp")
+step = 20.0
+value = 60.0
+fill_mode = 1
+show_percentage = false
+
+[node name="enemy_name" type="Label" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/enemy_ui/HBoxContainer/ProgressBar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_top = -20.0
+offset_bottom = 3.0
+grow_horizontal = 0
+text = "Slime"
+
+[node name="enemy_sprite" type="TextureRect" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/enemy_ui"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_4n66q")
+expand_mode = 3
+stretch_mode = 4
+flip_h = true
+
+[node name="player_ui" type="VBoxContainer" parent="MarginContainer/HBoxContainer/visuals_panel/visuals"]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/player_ui"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/player_ui/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/player_ui/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="player_name" type="Label" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/player_ui/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+text = "Player"
+horizontal_alignment = 2
+
+[node name="hp_bar" type="ProgressBar" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/player_ui/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_0bcfp")
+step = 20.0
+value = 60.0
+fill_mode = 1
+show_percentage = false
+
+[node name="mp_bar" type="ProgressBar" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/player_ui/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_cb8n0")
+step = 20.0
+value = 60.0
+fill_mode = 1
+show_percentage = false
+
+[node name="player" type="TextureRect" parent="MarginContainer/HBoxContainer/visuals_panel/visuals/player_ui"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_48mt7")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="tests" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="gap" type="Control" parent="MarginContainer/HBoxContainer/tests"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="test_panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_rbcif")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/tests/test_panel"]
+custom_minimum_size = Vector2(390, 70)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer"]
+layout_mode = 2
+
+[node name="inputs_and_check" type="HBoxContainer" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="gap" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="inputs2" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(240, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="inputs" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/inputs_and_check/inputs2"]
+custom_minimum_size = Vector2(240, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "10 5"
+autowrap_mode = 2
+
+[node name="gap2" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Test_Passed_Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(130, 25)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/inputs_and_check/Test_Passed_Icon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "UNTESTED"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="gap3" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="outputs" type="HBoxContainer" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="gap" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="exp_out_panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="expected_output" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/outputs/exp_out_panel"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "15"
+label_settings = SubResource("LabelSettings_usxr0")
+autowrap_mode = 2
+
+[node name="gap2" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="act_out_panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="actual_output" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/outputs/act_out_panel"]
+modulate = Color(0.838897, 0.838897, 0.838897, 1)
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+autowrap_mode = 2
+
+[node name="gap3" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="gap2" type="Control" parent="MarginContainer/HBoxContainer/tests"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="test_panel2" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_rbcif")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/tests/test_panel2"]
+custom_minimum_size = Vector2(390, 70)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="inputs_and_check" type="HBoxContainer" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="gap" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="inputs2" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(240, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="inputs" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/inputs_and_check/inputs2"]
+custom_minimum_size = Vector2(240, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-3 -2"
+autowrap_mode = 2
+
+[node name="gap2" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Test_Passed_Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(130, 25)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/inputs_and_check/Test_Passed_Icon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "UNTESTED"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="gap3" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="outputs" type="HBoxContainer" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="gap" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="exp_out_panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="expected_output" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/outputs/exp_out_panel"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-5"
+label_settings = SubResource("LabelSettings_usxr0")
+autowrap_mode = 2
+
+[node name="gap2" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="act_out_panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="actual_output" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/outputs/act_out_panel"]
+modulate = Color(0.838897, 0.838897, 0.838897, 1)
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+autowrap_mode = 2
+
+[node name="gap3" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel2/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="gap3" type="Control" parent="MarginContainer/HBoxContainer/tests"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="test_panel3" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests"]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_rbcif")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/tests/test_panel3"]
+custom_minimum_size = Vector2(390, 70)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer"]
+layout_mode = 2
+
+[node name="inputs_and_check" type="HBoxContainer" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="gap" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="inputs2" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(240, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="inputs" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/inputs_and_check/inputs2"]
+custom_minimum_size = Vector2(240, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "100 -17"
+autowrap_mode = 2
+
+[node name="gap2" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="Test_Passed_Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(130, 25)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/inputs_and_check/Test_Passed_Icon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "UNTESTED"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="gap3" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/inputs_and_check"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="outputs" type="HBoxContainer" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="gap" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="exp_out_panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="expected_output" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/outputs/exp_out_panel"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "83"
+label_settings = SubResource("LabelSettings_usxr0")
+autowrap_mode = 2
+
+[node name="gap2" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="act_out_panel" type="PanelContainer" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="actual_output" type="Label" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/outputs/act_out_panel"]
+modulate = Color(0.838897, 0.838897, 0.838897, 1)
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+autowrap_mode = 2
+
+[node name="gap3" type="Control" parent="MarginContainer/HBoxContainer/tests/test_panel3/MarginContainer/VBoxContainer/outputs"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/inputs/buttons/Button_Exit" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/inputs/buttons/Button_Run_Code" to="." method="_on_button_run_code_pressed"]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Test" load_steps=2 format=3 uid="uid://dq6s1pswkbxg7"]
+
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="1_qqmsw"]
+
+[resource]
+script = ExtResource("1_qqmsw")
+inputs = Array[String](["1", "1"])
+output = "2"

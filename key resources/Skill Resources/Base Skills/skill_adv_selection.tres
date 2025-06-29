@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://cjny4je8lpdt"]
+
+[ext_resource type="Script" uid="uid://deicjrqcejhc6" path="res://scripts/Skills System/Skill.gd" id="1_ww4ys"]
+
+[resource]
+script = ExtResource("1_ww4ys")
+skillname = "ADVANCED SELECTION"
+skilldesc = "elif...    else\\nelif is used to create a piece of code that will only run if the previous if or elif statement was FALSE and the elif statement is TRUE. else statements will run if all preceding if and elif statements were FALSE"
+examples = Array[Texture2D]([])
+resourcepath = "res://key resources/Skill Resources/Base Skills/skill_adv_selection.tres"

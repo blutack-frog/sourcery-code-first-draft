@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgdv40dwqw2ru"]
+
+[ext_resource type="SpriteFrames" uid="uid://3q0ytrkaa5ef" path="res://sprites/characters/slime_anim.tres" id="1_iyl3j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7pdw"]
+size = Vector2(14, 15)
+
+[node name="problem1" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_o7pdw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_iyl3j")
+animation = &"right"
+autoplay = "idle_front"
+frame = 3
+frame_progress = 0.488949
+flip_h = true

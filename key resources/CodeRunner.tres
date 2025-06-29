@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="CodeRunner" load_steps=2 format=3 uid="uid://bknet2w6mwjjn"]
+
+[ext_resource type="Script" uid="uid://bqeg8cdlpjp7v" path="res://scripts/Battle Scripts/CodeRunner.gd" id="1_d8p0y"]
+
+[resource]
+script = ExtResource("1_d8p0y")

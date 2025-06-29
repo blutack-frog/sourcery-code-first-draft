@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Test" load_steps=2 format=3 uid="uid://b67e5ookpywa0"]
+
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="1_xsydt"]
+
+[resource]
+script = ExtResource("1_xsydt")
+inputs = Array[String](["Lord Voldemort"])
+output = "Hello, Lord Voldemort!"

@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsa6wj845p8xc"]
+
+[ext_resource type="Script" uid="uid://d20o3bgjhlnh7" path="res://scripts/UI/inventory_slot.gd" id="1_5h8ax"]
+[ext_resource type="Texture2D" uid="uid://ceo64gbaj5jsm" path="res://UI assets/screen_UI/screen_inventory/5.png" id="1_ru537"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lrxjn"]
+texture = ExtResource("1_ru537")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Inventory_Slot" type="Panel"]
+custom_minimum_size = Vector2(60, 60)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_lrxjn")
+script = ExtResource("1_5h8ax")
+
+[node name="background" type="Sprite2D" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item_sprite" type="Sprite2D" parent="CenterContainer/Panel"]
+position = Vector2(-0.499983, 0.999999)
+scale = Vector2(4.3125, 4.6875)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_slot_pressed"]

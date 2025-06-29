@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://b2ticp24igsu1"]
+
+[ext_resource type="Script" uid="uid://deicjrqcejhc6" path="res://scripts/Skills System/Skill.gd" id="1_gwypc"]
+
+[resource]
+script = ExtResource("1_gwypc")
+skillname = "LISTS"
+skilldesc = "a variable thx = [0, 1, 2]\\na way of storing many values in one variable"
+examples = Array[Texture2D]([])
+resourcepath = "res://key resources/Skill Resources/Base Skills/skill_lists.tres"

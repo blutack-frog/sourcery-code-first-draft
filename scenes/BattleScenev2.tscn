@@ -1,0 +1,433 @@
+[gd_scene load_steps=20 format=3 uid="uid://c3s3icq4wkcg0"]
+
+[ext_resource type="Script" uid="uid://bqeg8cdlpjp7v" path="res://scripts/Battle Scripts/CodeRunner.gd" id="1_fh7nu"]
+[ext_resource type="Script" uid="uid://c4hansp18sc5" path="res://scripts/Battle Scripts/BattleUI_Manager.gd" id="1_qry8g"]
+[ext_resource type="Script" uid="uid://bi6ut888o2nhd" path="res://scenes/player_ui.gd" id="2_ysr5e"]
+[ext_resource type="PackedScene" uid="uid://doc5w4444rku6" path="res://scenes/ui/health_display.tscn" id="3_6sji7"]
+[ext_resource type="Texture2D" uid="uid://cjsu8g0een76y" path="res://sprites/ui/R.png" id="4_k5gv0"]
+[ext_resource type="PackedScene" uid="uid://dngwm8d1e2g8x" path="res://scenes/ui/xp_display.tscn" id="4_utemu"]
+[ext_resource type="SpriteFrames" uid="uid://3q0ytrkaa5ef" path="res://sprites/characters/slime_anim.tres" id="5_56oml"]
+[ext_resource type="Script" uid="uid://dnfvipd8vhwl1" path="res://scenes/Enemy_UI.gd" id="5_oef66"]
+[ext_resource type="PackedScene" uid="uid://b8dajgqp32h02" path="res://scenes/ui/test_panel.tscn" id="6_j6ndn"]
+[ext_resource type="Resource" uid="uid://c1pwe8i4al0fp" path="res://key resources/Enemy Resources/Enemy_Slime.tres" id="6_nctnk"]
+[ext_resource type="Texture2D" uid="uid://b5debx4qoue8f" path="res://sprites/dungeon_background.jpg" id="7_nkrwn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfc2x"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22v7n"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meqj0"]
+bg_color = Color(0.252028, 0.252028, 0.252028, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcggw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tghb0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8h70"]
+bg_color = Color(0.157087, 0.120158, 0.393696, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljdnc"]
+bg_color = Color(0.678944, 0.678944, 0.678944, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pwto"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="BattleScene" type="Node2D"]
+position = Vector2(650, 360)
+script = ExtResource("1_fh7nu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_qry8g")
+
+[node name="Background" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 650.0
+offset_top = 360.0
+offset_right = 650.0
+offset_bottom = 360.0
+
+[node name="TextureRect2" type="Panel" parent="CanvasLayer/Background"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = -699.0
+offset_top = -431.0
+offset_right = 682.0
+offset_bottom = 399.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rfc2x")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Background"]
+layout_mode = 0
+offset_left = -967.0
+offset_top = -459.0
+offset_right = 1010.0
+offset_bottom = 359.0
+texture = ExtResource("7_nkrwn")
+stretch_mode = 5
+
+[node name="Player" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("2_ysr5e")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Player"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -359.0
+offset_top = -200.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_22v7n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Player/PanelContainer"]
+layout_mode = 2
+
+[node name="Player_Info_Panel" type="Panel" parent="CanvasLayer/Player/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_meqj0")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Player/PanelContainer/VBoxContainer/Player_Info_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Player_Name" type="Label" parent="CanvasLayer/Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PLAYER_NAME"
+
+[node name="word_LVL" type="Label" parent="CanvasLayer/Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "LVL"
+horizontal_alignment = 2
+
+[node name="Player_Level" type="Label" parent="CanvasLayer/Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "3"
+horizontal_alignment = 2
+
+[node name="HealthDisplay" parent="CanvasLayer/Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer" instance=ExtResource("3_6sji7")]
+layout_mode = 2
+
+[node name="XPDisplay" parent="CanvasLayer/Player/PanelContainer/VBoxContainer/Player_Info_Panel/MarginContainer/VBoxContainer" instance=ExtResource("4_utemu")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Player/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="CanvasLayer/Player/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "LVL"
+vertical_alignment = 1
+
+[node name="levelNum" type="Label" parent="CanvasLayer/Player/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "10"
+
+[node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Player/PanelContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("4_k5gv0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button_Flee" type="Button" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -137.0
+offset_right = 195.0
+offset_bottom = -30.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dcggw")
+text = "FLEE"
+
+[node name="Button_Inventory" type="Button" parent="CanvasLayer"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 208.0
+offset_top = -138.0
+offset_right = 348.0
+offset_bottom = -30.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dcggw")
+text = "INVENTORY"
+
+[node name="Code_Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = -318.0
+offset_right = 256.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tghb0")
+
+[node name="Button_Execute" type="Button" parent="CanvasLayer/Code_Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_top = 10.0
+offset_right = 61.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "EXECUTE CODE"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Code_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="CodeEdit" type="CodeEdit" parent="CanvasLayer/Code_Panel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/background_color = Color(0.791999, 0.791999, 0.791999, 1)
+theme_override_colors/font_placeholder_color = Color(0.344076, 0.344076, 0.344076, 1)
+placeholder_text = "#write your code here"
+
+[node name="Enemy" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_right = -640.0
+grow_horizontal = 2
+script = ExtResource("5_oef66")
+enemyRes = ExtResource("6_nctnk")
+
+[node name="Circle" type="Panel" parent="CanvasLayer/Enemy"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 503.0
+offset_top = 257.0
+offset_right = 803.0
+offset_bottom = 377.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8h70")
+
+[node name="Enemy_anim" type="AnimatedSprite2D" parent="CanvasLayer/Enemy"]
+position = Vector2(649, 250)
+scale = Vector2(11.6719, 11.1406)
+sprite_frames = ExtResource("5_56oml")
+animation = &"idle_front"
+
+[node name="Problem Description" type="Panel" parent="CanvasLayer/Enemy"]
+layout_mode = 0
+offset_left = 927.0
+offset_top = 131.0
+offset_right = 1228.0
+offset_bottom = 330.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Enemy/Problem Description"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Enemy/Problem Description/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Enemy/Problem Description/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "PROBLEM DESCRIPTION"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="CanvasLayer/Enemy/Problem Description/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ljdnc")
+text = "this is where a description of the problem will be.
+It won't be that long, but it's important to explain the problem! Here I'm checking that this will work alright."
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Enemy_Info_Panel" type="Panel" parent="CanvasLayer/Enemy"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 434.0
+offset_top = 11.0
+offset_right = 888.0
+offset_bottom = 111.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_meqj0")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Enemy/Enemy_Info_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Enemy/Enemy_Info_Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Enemy/Enemy_Info_Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Enemy_Name" type="Label" parent="CanvasLayer/Enemy/Enemy_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ENEMY_NAME"
+
+[node name="word_LVL" type="Label" parent="CanvasLayer/Enemy/Enemy_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "LVL"
+horizontal_alignment = 2
+
+[node name="Enemy_Level" type="Label" parent="CanvasLayer/Enemy/Enemy_Info_Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "3"
+horizontal_alignment = 2
+
+[node name="HealthDisplay" parent="CanvasLayer/Enemy/Enemy_Info_Panel/MarginContainer/VBoxContainer" instance=ExtResource("3_6sji7")]
+layout_mode = 2
+
+[node name="TestsPanel" type="Panel" parent="CanvasLayer"]
+offset_left = 34.0
+offset_top = 72.0
+offset_right = 347.0
+offset_bottom = 468.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/TestsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TestsPanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/TestsPanel/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Test_Panel" parent="CanvasLayer/TestsPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("6_j6ndn")]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Test_Panel2" parent="CanvasLayer/TestsPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("6_j6ndn")]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Test_Panel3" parent="CanvasLayer/TestsPanel/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("6_j6ndn")]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="MessageBox" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -387.0
+offset_top = -131.0
+offset_right = 411.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7pwto")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MessageBox"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/MessageBox/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "YOU DEALT 13 DAMAGE!"

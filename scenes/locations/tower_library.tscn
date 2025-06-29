@@ -1,0 +1,130 @@
+[gd_scene load_steps=15 format=4 uid="uid://bajxjmuafjg3c"]
+
+[ext_resource type="TileSet" uid="uid://dq8k4ynvpoksl" path="res://sprites/tiles/floors.tres" id="1_scpmx"]
+[ext_resource type="TileSet" uid="uid://bgvhlxuwouvkr" path="res://sprites/tiles/library_walls.tres" id="2_wtjjo"]
+[ext_resource type="TileSet" uid="uid://dp76egubmte2u" path="res://sprites/tiles/interactables.tres" id="3_co3iw"]
+[ext_resource type="PackedScene" uid="uid://bmmmogrcnwjre" path="res://scenes/wizard_NPC.tscn" id="4_tvmoa"]
+[ext_resource type="PackedScene" uid="uid://dgdv40dwqw2ru" path="res://scenes/problem_1.tscn" id="5_wtjjo"]
+[ext_resource type="PackedScene" uid="uid://ge1uwx2cvgdr" path="res://scenes/player.tscn" id="6_co3iw"]
+[ext_resource type="PackedScene" uid="uid://ckvsots0eewrp" path="res://scenes/objects/bookshelf.tscn" id="7_tvmoa"]
+[ext_resource type="PackedScene" uid="uid://c36fxnoooyygs" path="res://scenes/objects/desk.tscn" id="8_6n1v2"]
+[ext_resource type="Script" uid="uid://b53qfeyk2xfvd" path="res://scripts/Interactables/Interactable.gd" id="8_12psj"]
+[ext_resource type="Resource" uid="uid://d07jlxhnyxj4n" path="res://dialogue/common_objects.dialogue" id="9_6n1v2"]
+[ext_resource type="PackedScene" uid="uid://cvdq3leow3483" path="res://scenes/objects/chair.tscn" id="9_jr0lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvmoa"]
+size = Vector2(93, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25vd5"]
+size = Vector2(14, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12psj"]
+size = Vector2(14, 30)
+
+[node name="TowerLibrary" type="Node2D"]
+
+[node name="tilemap layers" type="Node" parent="."]
+
+[node name="carpet" type="TileMapLayer" parent="tilemap layers"]
+tile_map_data = PackedByteArray("AAAAAAUAAAACAAUAAAABAAUAAAACAAUAAAACAAUAAAACAAUAAAADAAUAAAACAAUAAAAEAAUAAAACAAUAAAAFAAUAAAACAAUAAAAGAAUAAAACAAUAAAAHAAUAAAACAAUAAAAIAAUAAAACAAUAAAAIAAQAAAACAAUAAAAHAAQAAAACAAUAAAAGAAQAAAACAAUAAAAFAAQAAQAMAAIAAAAEAAQAAAACAAMAAAADAAQAAAACAAMAAAACAAQAAAACAAMAAAABAAQAAQAKAAIAAAAAAAQAAAACAAUAAAAAAAYAAAACAAUAAAABAAYAAAACAAUAAAACAAYAAAACAAUAAAADAAYAAAACAAUAAAAEAAYAAAACAAUAAAAFAAYAAAACAAUAAAAGAAYAAAACAAUAAAAHAAYAAAACAAUAAAAIAAYAAAACAAUAAAACAAcAAAACAAUAAAABAAcAAAACAAUAAAAAAAMAAAACAAMAAAABAAMAAAACAAMAAAACAAMAAAACAAUAAAADAAMAAAACAAUAAAAEAAMAAAACAAMAAAAFAAMAAAACAAMAAAAGAAMAAAACAAUAAAAHAAMAAAACAAUAAAAIAAMAAAACAAMAAAAIAAIAAAACAAMAAAAHAAIAAAACAAUAAAAGAAIAAAACAAUAAAAFAAIAAAACAAMAAAAEAAIAAAACAAMAAAADAAIAAAACAAUAAAACAAIAAAACAAUAAAABAAIAAAACAAMAAAAAAAIAAAACAAMAAAAAAAEAAAACAAUAAAABAAEAAAACAAUAAAACAAEAAAACAAUAAAADAAEAAAACAAUAAAAEAAEAAAACAAUAAAAFAAEAAAACAAUAAAAGAAEAAAACAAUAAAAHAAEAAAACAAUAAAAIAAEAAAACAAUAAAAIAAAAAAACAAQAAAAHAAAAAAACAAQAAAAGAAAAAAACAAQAAAAFAAAAAAACAAQAAAAEAAAAAAACAAQAAAADAAAAAAACAAQAAAACAAAAAAACAAQAAAABAAAAAAACAAQAAAAAAAAAAAACAAQAAAA=")
+tile_set = ExtResource("1_scpmx")
+
+[node name="walls" type="TileMapLayer" parent="tilemap layers"]
+tile_map_data = PackedByteArray("AAAAAP7/AAAMAAAAAAAAAP//AAAMAAEAAAABAP7/AAANAAAAAAABAP//AAANAAEAAAACAP7/AAANAAAAAAACAP//AAANAAEAAAADAP7/AAANAAAAAAADAP//AAANAAEAAAAEAP7/AAANAAAAAAAEAP//AAANAAEAAAAFAP7/AAANAAAAAAAFAP//AAANAAEAAAAGAP7/AAANAAAAAAAGAP//AAANAAEAAAAHAP7/AAANAAAAAAAHAP//AAANAAEAAAAIAP7/AAAOAAAAAAAIAP//AAAOAAEAAAAAAP3/AAAAAAAAAAABAP3/AAABAAAAAAACAP3/AAABAAAAAAADAP3/AAABAAAAAAAEAP3/AAABAAAAAAAFAP3/AAABAAAAAAAGAP3/AAABAAAAAAAHAP3/AAABAAAAAAAIAP3/AAACAAAAAAA=")
+tile_set = ExtResource("2_wtjjo")
+
+[node name="shelves" type="TileMapLayer" parent="tilemap layers"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAHAP3/AAAYAAAAAAAHAP7/AAAYAAEAAAAHAP//AAAYAAIAAAAIAP3/AAAZAAAAAAAIAP7/AAAZAAEAAAAIAP//AAAZAAIAAAAFAP3/AAAYAAAAAAAFAP7/AAAYAAEAAAAFAP//AAAYAAIAAAAGAP3/AAAZAAAAAAAGAP7/AAAZAAEAAAAGAP//AAAZAAIAAAAAAAIAAAASAAcAAAAAAAMAAAASAAgAAAABAAIAAAATAAcAAAABAAMAAAATAAgAAAACAAIAAAAUAAcAAAACAAMAAAAUAAgAAAADAAIAAAASAAcAAAADAAMAAAASAAgAAAAEAAIAAAATAAcAAAAEAAMAAAATAAgAAAAFAAIAAAAUAAcAAAAFAAMAAAAUAAgAAAAIAAIAAAAdAAcAAAAIAAMAAAAdAAgAAAAAAAEAAAAQAAAAAAABAAEAAAARAAAAAAACAAEAAAASAAAAAAADAAEAAAAQAAAAAAAEAAEAAAARAAAAAAAFAAEAAAASAAAAAAAIAAEAAAASAAEAAAABAP7/AAASAAAAAAABAP//AAAUAAcAAAACAP7/AAAEABcAAAACAP//AAABABgAAAADAP7/AAAFABcAAAADAP//AAACABgAAAAEAP//AAAdAAcAAAAEAAAAAAAdAAgAAAABAAAAAAAUAAgAAAAAAP//AAASAAcAAAAAAAAAAAASAAgAAAAAAP7/AAAQAAAAAAAEAP7/AAASAAEAAAA=")
+tile_set = ExtResource("3_co3iw")
+
+[node name="desk" type="TileMapLayer" parent="tilemap layers"]
+tile_map_data = PackedByteArray("AAACAAQAAAAQAAkAAAADAAQAAAARAAkAAAAEAAQAAAASAAkAAAACAAMAAAATAAUAAAAEAAMAAAASAAAAAAADAAMAAAARAAAAAAAIAAAAAAAUAAAAAAAIAP//AAASAAEAAAADAP7/AAANAAoAAAA=")
+tile_set = ExtResource("3_co3iw")
+
+[node name="chair" type="TileMapLayer" parent="tilemap layers"]
+tile_map_data = PackedByteArray("AAACAAUAAAAQAA4AAAACAAQAAAASAA0AAAAEAAMAAAADAAQAAAA=")
+tile_set = ExtResource("3_co3iw")
+
+[node name="wizard_npc" parent="." instance=ExtResource("4_tvmoa")]
+top_level = true
+position = Vector2(55, 45)
+
+[node name="problem1" parent="." instance=ExtResource("5_wtjjo")]
+top_level = true
+position = Vector2(117, 93)
+
+[node name="player" parent="." instance=ExtResource("6_co3iw")]
+position = Vector2(41, 8)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(4, 4)
+
+[node name="outside" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="outside"]
+polygon = PackedVector2Array(-1, 0, -1, 111, 16, 112, 16, 128, 48, 128, 48, 112, 144, 112, 143, -2, 51, -1, 51, -18, 28, -18, 30, 0, 3, -1, 3, -23, 157, -22, 154, 133, -9, 132, -7, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outside"]
+position = Vector2(48.5, 43.5)
+shape = SubResource("RectangleShape2D_tvmoa")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="outside"]
+position = Vector2(136, 1)
+shape = SubResource("RectangleShape2D_25vd5")
+
+[node name="objects" type="Node" parent="."]
+
+[node name="bookshelf" parent="objects" instance=ExtResource("7_tvmoa")]
+position = Vector2(15, 0)
+
+[node name="bookshelf2" parent="objects" instance=ExtResource("7_tvmoa")]
+position = Vector2(16, 47)
+
+[node name="bookshelf3" parent="objects" instance=ExtResource("7_tvmoa")]
+position = Vector2(95, -16)
+
+[node name="bookshelf4" parent="objects" instance=ExtResource("7_tvmoa")]
+position = Vector2(78, -2)
+
+[node name="CollisionShape2D" parent="objects/bookshelf4" index="0"]
+position = Vector2(-7, 0)
+shape = SubResource("RectangleShape2D_12psj")
+
+[node name="bookshelf5" parent="objects" instance=ExtResource("7_tvmoa")]
+position = Vector2(78, -2)
+
+[node name="CollisionShape2D" parent="objects/bookshelf5" index="0"]
+position = Vector2(58, 49)
+shape = SubResource("RectangleShape2D_12psj")
+
+[node name="bookshelf6" parent="objects" instance=ExtResource("7_tvmoa")]
+position = Vector2(94, 47)
+
+[node name="CollisionShape2D" parent="objects/bookshelf6" index="0"]
+position = Vector2(-7, 0)
+shape = SubResource("RectangleShape2D_12psj")
+
+[node name="bookshelf7" parent="objects" instance=ExtResource("7_tvmoa")]
+position = Vector2(78, -2)
+
+[node name="CollisionShape2D" parent="objects/bookshelf7" index="0"]
+position = Vector2(43, -14)
+shape = SubResource("RectangleShape2D_12psj")
+
+[node name="desk" parent="objects" instance=ExtResource("8_6n1v2")]
+
+[node name="chair" parent="objects" instance=ExtResource("9_jr0lk")]
+position = Vector2(42, 78)
+script = ExtResource("8_12psj")
+dialogue_resource = ExtResource("9_6n1v2")
+dialogue_start = "chair"
+
+[node name="CollisionShape2D" parent="objects/chair" index="0"]
+position = Vector2(-3, 2)
+
+[editable path="objects/bookshelf4"]
+[editable path="objects/bookshelf5"]
+[editable path="objects/bookshelf6"]
+[editable path="objects/bookshelf7"]
+[editable path="objects/chair"]

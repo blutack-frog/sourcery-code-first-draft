@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bui8mpljb45ss"]
+
+[ext_resource type="Script" uid="uid://dr0utasi0q3c3" path="res://scripts/Interactables/Lockable.gd" id="1_4sjjw"]
+[ext_resource type="Texture2D" uid="uid://cd72lungrxyqm" path="res://sprites/objects/treasure_chest.tres" id="1_w87ir"]
+[ext_resource type="Resource" uid="uid://c5evovnpyqtdi" path="res://dialogue/main.dialogue" id="2_fbri6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ild2t"]
+size = Vector2(14, 7)
+
+[node name="chest" type="StaticBody2D"]
+position = Vector2(216, 19)
+script = ExtResource("1_4sjjw")
+lockableName = "basic_chest"
+dialogue_resource = ExtResource("2_fbri6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w87ir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_ild2t")

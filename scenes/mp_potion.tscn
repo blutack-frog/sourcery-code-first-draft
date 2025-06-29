@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://mqdrhv7gkjdh"]
+
+[ext_resource type="Script" uid="uid://8gxi6pud44nk" path="res://scripts/Interactables/pick_up_item.gd" id="1_c42iu"]
+[ext_resource type="Texture2D" uid="uid://cg523m2n8oqqh" path="res://sprites/objects/hp_potion.tres" id="2_8iyhi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drdrv"]
+size = Vector2(8, 10)
+
+[node name="MP_potion" type="StaticBody2D"]
+position = Vector2(104, 104)
+script = ExtResource("1_c42iu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_drdrv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8iyhi")

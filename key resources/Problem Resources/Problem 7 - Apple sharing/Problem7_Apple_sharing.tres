@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Problem" load_steps=6 format=3 uid="uid://ch04rly55nunb"]
+
+[ext_resource type="Script" uid="uid://dk4jy6itbiqc" path="res://scripts/Battle Scripts/Problem.gd" id="1_x3thf"]
+[ext_resource type="Resource" uid="uid://brkq844qrtmwu" path="res://key resources/Problem Resources/Problem 7 - Apple sharing/Problem7_Test1.tres" id="2_bmk1h"]
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="2_dxih0"]
+[ext_resource type="Resource" uid="uid://x0uicwoayj6a" path="res://key resources/Problem Resources/Problem 7 - Apple sharing/Problem7_Test2.tres" id="3_iovv3"]
+[ext_resource type="Resource" uid="uid://i5k5ybwvpkke" path="res://key resources/Problem Resources/Problem 7 - Apple sharing/Problem7_Test3.tres" id="4_mgrla"]
+
+[resource]
+script = ExtResource("1_x3thf")
+description = "N students take K apples and distribute them among each other evenly. The remaining (the undivisible) part remains in the basket. How many apples will each single student get? How many apples will remain in the basket?The program reads the numbers N and K. It should print the two answers for the questions above. "
+tests = Array[ExtResource("2_dxih0")]([ExtResource("2_bmk1h"), ExtResource("3_iovv3"), ExtResource("4_mgrla")])
+difficulty = 0

@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ctp3jb5jhifqh"]
+
+[ext_resource type="Texture2D" uid="uid://cn4rxilyas0cy" path="res://UI assets/book/Book Idle/1.png" id="1_7s42n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pfyqw"]
+texture = ExtResource("1_7s42n")
+region_rect = Rect2(104, 163, 689, 454)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihk3s"]
+
+[resource]
+BookPanel/base_type = &"Panel"
+BookPanel/styles/BookPanel = SubResource("StyleBoxTexture_pfyqw")
+Panel/styles/panel = SubResource("StyleBoxFlat_ihk3s")

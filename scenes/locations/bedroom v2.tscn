@@ -1,0 +1,112 @@
+[gd_scene load_steps=20 format=4 uid="uid://ydf5r7c2ae5r"]
+
+[ext_resource type="TileSet" uid="uid://dr1w8upypi43m" path="res://sprites/tiles/inside/masters_chamber.tres" id="1_hjlcj"]
+[ext_resource type="PackedScene" uid="uid://d3kvbv7gxmmty" path="res://scenes/ui/canvas_layer.tscn" id="1_hk3fw"]
+[ext_resource type="Script" uid="uid://dmlrk5t4kk5vq" path="res://scripts/Scene System/scene_bedroomv2.gd" id="1_n7dds"]
+[ext_resource type="PackedScene" uid="uid://ge1uwx2cvgdr" path="res://scenes/player.tscn" id="2_hk3fw"]
+[ext_resource type="PackedScene" uid="uid://b6eoaawupqyeh" path="res://scenes/objects/pick_up_skillbook.tscn" id="3_dawtg"]
+[ext_resource type="Script" uid="uid://boi1jgcbtekn3" path="res://scripts/Interactables/pick_up_book.gd" id="4_uidj2"]
+[ext_resource type="Script" uid="uid://bi0fypauejner" path="res://scripts/Interactables/door_locked.gd" id="4_w43t2"]
+[ext_resource type="Resource" uid="uid://dar55f7ljc33d" path="res://dialogue/locked_door.dialogue" id="5_qr1ve"]
+[ext_resource type="Resource" uid="uid://3ji0ts7xsl68" path="res://dialogue/bedroom v2 objects.dialogue" id="6_380ar"]
+[ext_resource type="PackedScene" uid="uid://bwgpe0q0h6flh" path="res://scenes/objects/key.tscn" id="7_jmsku"]
+[ext_resource type="Script" uid="uid://be01g1sskb5ic" path="res://scripts/Interactables/pick_up_firstkey.gd" id="8_q8yu3"]
+[ext_resource type="Script" uid="uid://fyy8fs2ny86o" path="res://scripts/Inventory System/Inventory_Key.gd" id="9_oknlx"]
+[ext_resource type="Texture2D" uid="uid://b630pju5euu8l" path="res://sprites/objects/key.tres" id="10_380ar"]
+[ext_resource type="PackedScene" uid="uid://f716t2qypa2q" path="res://scenes/objects/pick_up_inventory.tscn" id="12_380ar"]
+[ext_resource type="Script" uid="uid://ctfngtb2n0jt3" path="res://scripts/Interactables/pick_up_inventory.gd" id="13_w43t2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dawtg"]
+size = Vector2(32, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q62nw"]
+size = Vector2(30, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uidj2"]
+size = Vector2(14, 12)
+
+[sub_resource type="Resource" id="Resource_380ar"]
+script = ExtResource("9_oknlx")
+unlocks = "bedroom door"
+name = "bedroom door key"
+desc = "probably unlocks the bedroom door?"
+texture = ExtResource("10_380ar")
+resourcepath = ""
+metadata/_custom_type_script = "uid://fyy8fs2ny86o"
+
+[node name="BedroomV2" type="Node2D"]
+script = ExtResource("1_n7dds")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_hk3fw")]
+
+[node name="floor" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wAAAQACAAgAAAD//wEAAQACAAkAAAAAAAAAAQADAAgAAAAAAAEAAQADAAkAAAD///7/AQACAAcAAAD/////AQACAAcAAAAAAP7/AQADAAcAAAAAAP//AQADAAcAAAABAP7/AQAEAAcAAAABAP//AQAEAAcAAAABAAAAAQAEAAgAAAABAAEAAQAEAAkAAAD9//7/AQACAAcAAAD9////AQACAAcAAAD+//7/AQADAAcAAAD+////AQADAAcAAAD9/wAAAQACAAgAAAD9/wEAAQACAAkAAAD+/wAAAQADAAgAAAD+/wEAAQADAAkAAAACAP//AQADAAcAAAACAAAAAQADAAgAAAACAAEAAQADAAkAAAACAP7/AQADAAkAAAAAAAIAAQADAAkAAAAAAAMAAQADAAgAAAA=")
+tile_set = ExtResource("1_hjlcj")
+
+[node name="wall" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD9//z/AgAMABkAAAD9//3/AgAMABoAAAACAPz/AgAOABkAAAACAP3/AgAOABoAAAABAPz/AgANABkAAAABAP3/AgANABoAAAAAAPz/AgANABkAAAAAAP3/AgANABoAAAD///z/AgANABkAAAD///3/AgANABoAAAD+//z/AgANABkAAAD+//3/AgANABoAAAA=")
+tile_set = ExtResource("1_hjlcj")
+
+[node name="carpets" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAP//BAAWABAAAAABAP//BAAXABAAAAAAAAIABAAKABAAAAA=")
+tile_set = ExtResource("1_hjlcj")
+
+[node name="interactables" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAMAAwAKAA4AAAAAAAQAAwAKAA8AAAABAP3/BwAJAAYAAAABAP7/BwAJAAcAAAACAP3/BwAKAAYAAAACAP7/BwAKAAcAAAD9//z/BwAaAAMAAAD9//3/BwAaAAQAAAD9//7/BwAaAAUAAAD+//z/BwAbAAMAAAD+//3/BwAbAAQAAAD+//7/BwAbAAUAAAABAAAABwAKAAkAAAABAAEABwAKAAoAAAACAAAABwALAAkAAAACAAEABwALAAoAAAD///z/BwAJAAQAAAAAAPz/BwAKAAQAAAD+/wAABwAXAAIAAAD//wAABwAYAAIAAAA=")
+tile_set = ExtResource("1_hjlcj")
+
+[node name="outside" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="outside"]
+polygon = PackedVector2Array(-48, -33, -48, 32, 0, 32, 0, 55, 16, 55, 16, 32, 48, 32, 48, -34, -44, -33, -51, -46, 57, -46, 56, 64, -55, 64, -57, -43)
+
+[node name="objects" type="Node" parent="."]
+
+[node name="bookshelf" type="StaticBody2D" parent="objects"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/bookshelf"]
+position = Vector2(-32, -34.5)
+shape = SubResource("RectangleShape2D_dawtg")
+
+[node name="bed" type="StaticBody2D" parent="objects"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/bed"]
+position = Vector2(32, -27.5)
+shape = SubResource("RectangleShape2D_q62nw")
+
+[node name="door_zone" type="StaticBody2D" parent="objects"]
+position = Vector2(8, 51)
+script = ExtResource("4_w43t2")
+unlocked_by = "bedroom door key"
+dialogue_resource = ExtResource("5_qr1ve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/door_zone"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_uidj2")
+
+[node name="pick_up_skillbook" parent="objects" instance=ExtResource("3_dawtg")]
+position = Vector2(33, 19)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("4_uidj2")
+dialogue_resource = ExtResource("6_380ar")
+dialogue_start = "pickup_book"
+
+[node name="key" parent="objects" instance=ExtResource("7_jmsku")]
+position = Vector2(1, -27)
+script = ExtResource("8_q8yu3")
+itemType = SubResource("Resource_380ar")
+dialogue_resource = ExtResource("6_380ar")
+dialogue_start = "pick_up"
+
+[node name="pick_up_inventory" parent="objects" instance=ExtResource("12_380ar")]
+position = Vector2(-35, 0)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("13_w43t2")
+dialogue_resource = ExtResource("6_380ar")
+dialogue_start = "pickup_inventory"
+
+[node name="player" parent="." instance=ExtResource("2_hk3fw")]
+position = Vector2(22, -2)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)

@@ -1,0 +1,15 @@
+
+~ inventory_full
+: YOU FOUND A {{global.interactable_name}}
+: YOUR INVENTORY IS FULL. YOU LEAVE IT WHERE IT IS
+=> END
+
+~ pick_up
+: YOU FOUND A {{global.interactable_name}}
+: PICK IT UP?
+- Yes
+	do global.confirm_interaction.emit()
+	: YOU PICK UP THE {{global.interactable_name}}
+- No
+	: YOU LEAVE THE {{global.interactable_name}} WHERE IT IS
+=> END

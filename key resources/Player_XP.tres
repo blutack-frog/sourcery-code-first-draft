@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Player_XP_Manager" load_steps=2 format=3 uid="uid://513bj3omxa2u"]
+
+[ext_resource type="Script" uid="uid://vc6afynh6jkq" path="res://scripts/Levels XP Health/Player_XP_Manager.gd" id="1_u2dnx"]
+
+[resource]
+script = ExtResource("1_u2dnx")
+currentXP = 0
+maxXP = 8
+currentLevel = 1
+maxLevel = 60
+levelSpeed = 3

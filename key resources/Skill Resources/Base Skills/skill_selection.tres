@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://dyvpo1li5mb12"]
+
+[ext_resource type="Script" uid="uid://deicjrqcejhc6" path="res://scripts/Skills System/Skill.gd" id="1_7fqwx"]
+
+[resource]
+script = ExtResource("1_7fqwx")
+skillname = "SELECTION"
+skilldesc = "if\\nused to write a section of code that will only run IF a condition is true"
+examples = Array[Texture2D]([])
+resourcepath = "res://key resources/Skill Resources/Base Skills/skill_selection.tres"

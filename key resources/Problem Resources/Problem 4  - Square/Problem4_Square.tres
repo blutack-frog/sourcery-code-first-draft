@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Problem" load_steps=6 format=3 uid="uid://bniwiletfy5wc"]
+
+[ext_resource type="Script" uid="uid://dk4jy6itbiqc" path="res://scripts/Battle Scripts/Problem.gd" id="1_6ix2i"]
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="2_lnsy4"]
+[ext_resource type="Resource" uid="uid://csbrbqymefthb" path="res://key resources/Problem Resources/Problem 4  - Square/Problem4_Test1.tres" id="2_on4k5"]
+[ext_resource type="Resource" uid="uid://lj6eebysxirj" path="res://key resources/Problem Resources/Problem 4  - Square/Problem4_Test2.tres" id="3_nw3gu"]
+[ext_resource type="Resource" uid="uid://bv2m72qp11au1" path="res://key resources/Problem Resources/Problem 4  - Square/Problem4_Test3.tres" id="4_nx60b"]
+
+[resource]
+script = ExtResource("1_6ix2i")
+description = "Write a program that takes a number and print its square. "
+tests = Array[ExtResource("2_lnsy4")]([ExtResource("2_on4k5"), ExtResource("3_nw3gu"), ExtResource("4_nx60b")])
+difficulty = 0

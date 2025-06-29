@@ -1,0 +1,17 @@
+
+~ unlearned
+:YOU INTERACT WITH THE SKILLPOINT
+:WOULD YOU LIKE TO LEARN {{global.interactable_name}}
+- Yes
+	 set global.yes = true
+	 do global.confirm_interaction.emit()
+	:YOU LEARNED {{global.interactable_name}}
+	:CHECK YOUR SKILL BOOK FOR MORE DETAILS
+- No
+	set global.yes = false
+	:YOU DO NOT LEARN THE SKILL
+=> END
+
+~ learned
+:YOU HAVE LEARNED THIS SKILL
+:CHECK YOUR SKILLBOOK FOR MORE DETAILS => END

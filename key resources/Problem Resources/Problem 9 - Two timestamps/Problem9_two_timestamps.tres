@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Problem" load_steps=6 format=3 uid="uid://dowtr21dq581x"]
+
+[ext_resource type="Script" uid="uid://dk4jy6itbiqc" path="res://scripts/Battle Scripts/Problem.gd" id="1_64egg"]
+[ext_resource type="Script" uid="uid://ce2o71njh3e7o" path="res://scripts/Battle Scripts/Test.gd" id="2_6lci2"]
+[ext_resource type="Resource" uid="uid://g8v5tnp7vh5c" path="res://key resources/Problem Resources/Problem 9 - Two timestamps/Problem9_Test1.tres" id="2_mixci"]
+[ext_resource type="Resource" uid="uid://1vc5rb7jitrt" path="res://key resources/Problem Resources/Problem 9 - Two timestamps/Problem9_Test2.tres" id="3_00hcy"]
+[ext_resource type="Resource" uid="uid://dgtsdpqewd5n6" path="res://key resources/Problem Resources/Problem 9 - Two timestamps/Problem9_Test3.tres" id="4_ytqhk"]
+
+[resource]
+script = ExtResource("1_64egg")
+description = "A timestamp is three numbers: a number of hours, minutes and seconds. Given two timestamps, calculate how many seconds is between them. The moment of the first timestamp occurred before the moment of the second timestamp. "
+tests = Array[ExtResource("2_6lci2")]([ExtResource("2_mixci"), ExtResource("3_00hcy"), ExtResource("4_ytqhk")])
+difficulty = 0

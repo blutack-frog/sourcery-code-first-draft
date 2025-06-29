@@ -1,0 +1,18 @@
+~ has_key
+: you have the key to unlock this door. use it?
+- Yes
+	do global.interactable.use_key()
+	: the door is now unlocked!
+	do global.interactable.locked = false
+	: Go through?
+	- Yes
+		do global.interactable.complete()
+	- No
+- No
+	=> locked
+=> END 
+	
+~ locked
+: the door is locked
+=> END
+	

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Inventory_Item" load_steps=3 format=3 uid="uid://cxjf2qy3gh1qb"]
+
+[ext_resource type="Script" uid="uid://dmqak0qda186t" path="res://scripts/Inventory System/Inventory_Item.gd" id="1_vvuxd"]
+[ext_resource type="Texture2D" uid="uid://b630pju5euu8l" path="res://sprites/objects/key.tres" id="2_vqs3y"]
+
+[resource]
+script = ExtResource("1_vvuxd")
+name = "Key"
+desc = "it opens things"
+texture = ExtResource("2_vqs3y")
+resourcepath = "res://key resources/InteractableResources/key.tres"

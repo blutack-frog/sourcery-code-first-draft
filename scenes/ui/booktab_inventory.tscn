@@ -1,0 +1,243 @@
+[gd_scene load_steps=18 format=3 uid="uid://ca4bkjjuxt05u"]
+
+[ext_resource type="Script" uid="uid://dmo2q01146rxl" path="res://scripts/UI/inventory_gui.gd" id="1_edvmf"]
+[ext_resource type="Texture2D" uid="uid://cg523m2n8oqqh" path="res://sprites/objects/hp_potion.tres" id="1_upm06"]
+[ext_resource type="PackedScene" uid="uid://bsa6wj845p8xc" path="res://scenes/ui/inventory_slot.tscn" id="2_vyshv"]
+[ext_resource type="Texture2D" uid="uid://bxkek7g2vepwc" path="res://UI assets/inventory book ui/16.png" id="3_5b37q"]
+[ext_resource type="FontFile" uid="uid://be672bxbmis8c" path="res://UI assets/PeaberryBase.ttf" id="3_k60th"]
+[ext_resource type="FontFile" uid="uid://deg6jbyqcm3e0" path="res://UI assets/inventory book ui/PeaberryBase.ttf" id="5_0bk7t"]
+[ext_resource type="Texture2D" uid="uid://b4fsttfokpatr" path="res://UI assets/inventory book ui/1.png" id="5_hgd46"]
+[ext_resource type="Texture2D" uid="uid://dso20nak8x021" path="res://UI assets/inventory book ui/10.png" id="7_4ik8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7kje6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pxtmb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_048il"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_shc52"]
+texture = ExtResource("5_hgd46")
+region_rect = Rect2(576, 4178, 48, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dfcdv"]
+texture = ExtResource("5_hgd46")
+region_rect = Rect2(512, 4176, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6vbh"]
+texture = ExtResource("5_hgd46")
+region_rect = Rect2(576, 4178, 48, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b2kqm"]
+texture = ExtResource("5_hgd46")
+region_rect = Rect2(512, 4176, 48, 16)
+
+[sub_resource type="Theme" id="Theme_yhsgv"]
+default_font = ExtResource("5_0bk7t")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1yr1g"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("5_hgd46")
+region_rect = Rect2(2767, 3999, 98, 98)
+
+[node name="inventory_panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -444.0
+offset_bottom = -181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7kje6")
+script = ExtResource("1_edvmf")
+
+[node name="left_page" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 35.0
+offset_right = 395.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pxtmb")
+
+[node name="MarginContainer" type="MarginContainer" parent="left_page"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="GridContainer" type="GridContainer" parent="left_page/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="Inventory_Slot" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot2" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot3" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot4" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot5" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot6" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot7" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot8" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot9" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot10" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot11" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot12" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot13" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot14" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot15" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Inventory_Slot16" parent="left_page/MarginContainer/GridContainer" instance=ExtResource("2_vyshv")]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="left_page"]
+position = Vector2(63, 5)
+scale = Vector2(1.5, 1.593)
+texture = ExtResource("3_5b37q")
+centered = false
+region_enabled = true
+region_rect = Rect2(2972, 215, 174, 43)
+
+[node name="right_page" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -395.0
+offset_top = 35.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_048il")
+
+[node name="MarginContainer" type="MarginContainer" parent="right_page"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="right_page/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Name" type="Label" parent="right_page/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_fonts/font = ExtResource("3_k60th")
+theme_override_font_sizes/font_size = 25
+text = "Item_Name"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="right_page/MarginContainer/VBoxContainer/Name"]
+position = Vector2(180, 30)
+scale = Vector2(2, 2.2)
+texture = ExtResource("7_4ik8e")
+region_enabled = true
+region_rect = Rect2(938, 523, 126, 5)
+
+[node name="Icon" type="TextureRect" parent="right_page/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture = ExtResource("1_upm06")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="right_page/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Use_Button" type="Button" parent="right_page/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_fonts/font = ExtResource("5_0bk7t")
+theme_override_styles/focus = SubResource("StyleBoxTexture_shc52")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_dfcdv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dfcdv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_shc52")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dfcdv")
+text = "USE"
+
+[node name="Bin_Button" type="Button" parent="right_page/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_fonts/font = ExtResource("5_0bk7t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f6vbh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_b2kqm")
+text = "BIN"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="right_page/MarginContainer/VBoxContainer/HBoxContainer/Bin_Button"]
+title = "ARE YOU SURE?"
+initial_position = 1
+size = Vector2i(322, 100)
+transient = false
+theme = SubResource("Theme_yhsgv")
+ok_button_text = "BIN"
+dialog_close_on_escape = false
+cancel_button_text = "KEEP"
+
+[node name="Description" type="RichTextLabel" parent="right_page/MarginContainer/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.0509804, 0.564706, 0.407843, 1)
+theme_override_constants/line_separation = 13
+theme_override_fonts/normal_font = ExtResource("3_k60th")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1yr1g")
+text = "an item that you can use :) LOREM IPSUM AND SO ON MOPSFJHOI OH MY GOOD GOLLY. CALL ME ISHMAEL. I CAN DO WITCHCRAFT! LOOK MA NO HANDS. I F"
+scroll_active = false
+
+[node name="Sprite2D" type="Sprite2D" parent="right_page/MarginContainer/VBoxContainer/Description"]
+position = Vector2(9.00002, 6)
+scale = Vector2(2.40426, 1.86022)
+texture = ExtResource("7_4ik8e")
+centered = false
+region_enabled = true
+region_rect = Rect2(219, 1355, 141, 93)
+
+[connection signal="pressed" from="right_page/MarginContainer/VBoxContainer/HBoxContainer/Use_Button" to="." method="_on_use_button_pressed"]
+[connection signal="pressed" from="right_page/MarginContainer/VBoxContainer/HBoxContainer/Bin_Button" to="." method="_on_bin_button_pressed"]
+[connection signal="canceled" from="right_page/MarginContainer/VBoxContainer/HBoxContainer/Bin_Button/ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
+[connection signal="confirmed" from="right_page/MarginContainer/VBoxContainer/HBoxContainer/Bin_Button/ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

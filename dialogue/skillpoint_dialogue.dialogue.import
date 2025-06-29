@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ckfdqftg8ohg1"
+path="res://.godot/imported/skillpoint_dialogue.dialogue-1725c9292249927d81fb5da89da388de.tres"
+
+[deps]
+
+source_file="res://dialogue/skillpoint_dialogue.dialogue"
+dest_files=["res://.godot/imported/skillpoint_dialogue.dialogue-1725c9292249927d81fb5da89da388de.tres"]
+
+[params]
+
+defaults=true

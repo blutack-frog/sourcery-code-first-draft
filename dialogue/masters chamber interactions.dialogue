@@ -1,0 +1,22 @@
+~ bed
+: it's a bed. You think your teacher uses it for sleeping, but you've never seen her use it.
+=> END
+
+~ chest
+: it's empty
+=> END
+
+~ computer
+: one of teacher's devices. She says that this is what wands used to look like.
+: you wonder how they did sourcery on something so clunky...
+=> END
+
+~ bookshelf1
+: a book on VARIABLES. Read it?
+- YES
+	: A variable is a way of storing something for later.
+	: They can make your spells much easier to understand, and save a lot of time!
+	: EXAMPLE:\n    name = "wizard"\n    print(name)\nThis spell will say the word "wizard"!
+- NO
+=> END
+

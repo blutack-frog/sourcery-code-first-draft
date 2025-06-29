@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6eoaawupqyeh"]
+
+[ext_resource type="Texture2D" uid="uid://cy1q33r6umevl" path="res://UI assets/screen_UI/book_icon.png" id="1_7o54q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55nog"]
+size = Vector2(59, 76)
+
+[node name="pick_up_skillbook" type="StaticBody2D"]
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7o54q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_55nog")

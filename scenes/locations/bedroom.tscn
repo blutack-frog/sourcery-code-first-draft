@@ -1,0 +1,133 @@
+[gd_scene load_steps=19 format=3 uid="uid://dp2l7i644arqh"]
+
+[ext_resource type="Script" uid="uid://dir2pxhi8vopr" path="res://scripts/Scene System/world.gd" id="1_js2xt"]
+[ext_resource type="PackedScene" uid="uid://d3kvbv7gxmmty" path="res://scenes/ui/canvas_layer.tscn" id="2_bo3jr"]
+[ext_resource type="TileSet" uid="uid://dr1w8upypi43m" path="res://sprites/tiles/inside/masters_chamber.tres" id="2_w2n2k"]
+[ext_resource type="Script" uid="uid://b53qfeyk2xfvd" path="res://scripts/Interactables/Interactable.gd" id="3_dxcv3"]
+[ext_resource type="Script" uid="uid://d0ryuus5gxhs5" path="res://scripts/Interactables/savepoint.gd" id="4_2jo01"]
+[ext_resource type="Texture2D" uid="uid://cfn1kfww35u6h" path="res://sprites/objects/Items_1_16x16.png" id="4_g2lgp"]
+[ext_resource type="Resource" uid="uid://de6b7cop1n8yo" path="res://dialogue/bed.dialogue" id="5_nr30p"]
+[ext_resource type="Script" uid="uid://d076gpm06dfks" path="res://scripts/Interactables/door.gd" id="5_rgb64"]
+[ext_resource type="Resource" uid="uid://dd2bnsmbjcffl" path="res://dialogue/bedroom.dialogue" id="6_fpkw2"]
+[ext_resource type="Texture2D" uid="uid://cgtoyeuiklsih" path="res://sprites/tiles/inside/Others_1_16x16.png" id="6_pc4f8"]
+[ext_resource type="Script" uid="uid://dma0b8eemvu0" path="res://scripts/Interactables/enemy.gd" id="7_cq55x"]
+[ext_resource type="Resource" uid="uid://bxxuw6bxb2jy2" path="res://key resources/Enemy Resources/Enemy_HelloWorld.tres" id="8_fomju"]
+[ext_resource type="PackedScene" uid="uid://ge1uwx2cvgdr" path="res://scenes/player.tscn" id="9_p8h1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lryr3"]
+size = Vector2(30, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fq2vy"]
+size = Vector2(32, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dajh2"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmdfc"]
+size = Vector2(28, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fhwk"]
+size = Vector2(18, 18)
+
+[node name="Bedroom" type="Node2D"]
+script = ExtResource("1_js2xt")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_bo3jr")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_w2n2k")
+format = 2
+layer_0/name = "floors"
+layer_0/tile_data = PackedInt32Array(0, 655361, 7, 65536, 655361, 8, 131072, 655361, 7, 1, 720897, 7, 65537, 720897, 8, 131073, 720897, 7, 2, 655361, 7, 65538, 655361, 8, 131074, 655361, 7, 3, 720897, 7, 65539, 720897, 8, 131075, 720897, 7, 4, 655361, 7, 65540, 655361, 8, 131076, 655361, 7, 5, 720897, 7, 65541, 720897, 8, 131077, 720897, 7, 6, 786433, 7, 65542, 786433, 8, 131078, 786433, 7, 196608, 655361, 8, 196609, 720897, 8, 196610, 655361, 8, 196611, 720897, 8, 196612, 655361, 8, 196613, 720897, 8, 196614, 786433, 8)
+layer_1/name = "walls"
+layer_1/tile_data = PackedInt32Array(-131072, 786434, 1, -65536, 786434, 2, -131066, 917506, 1, -65530, 917506, 2, -131071, 851970, 1, -65535, 851970, 2, -131070, 851970, 1, -65534, 851970, 2, -131069, 851970, 1, -65533, 851970, 2, -131068, 851970, 1, -65532, 851970, 2, -131067, 851970, 1, -65531, 851970, 2)
+layer_2/name = "interactables"
+
+[node name="Outside" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Outside"]
+polygon = PackedVector2Array(-12, -19, 123, -19, 124, 72, -10, 71, -12, -14, 0, -1, 0, 64, 112, 64, 112, -1, 61, -1, 61, -7, 42, -8, 42, -1, 2, -1)
+
+[node name="objects" type="Node" parent="."]
+
+[node name="bed" type="StaticBody2D" parent="objects"]
+position = Vector2(97, 52)
+script = ExtResource("4_2jo01")
+dialogue_resource = ExtResource("5_nr30p")
+dialogue_start = "save"
+id = "bed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/bed"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_lryr3")
+
+[node name="Sprite2D" type="Sprite2D" parent="objects/bed"]
+texture = ExtResource("4_g2lgp")
+region_enabled = true
+region_rect = Rect2(145, 103, 31, 25)
+
+[node name="bookshelf" type="StaticBody2D" parent="objects"]
+position = Vector2(16, -7)
+script = ExtResource("3_dxcv3")
+dialogue_resource = ExtResource("6_fpkw2")
+dialogue_start = "bookshelf"
+id = "bookshelf"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/bookshelf"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_fq2vy")
+
+[node name="Sprite2D" type="Sprite2D" parent="objects/bookshelf"]
+texture = ExtResource("4_g2lgp")
+region_enabled = true
+region_rect = Rect2(416, 59, 32, 37)
+
+[node name="door" type="StaticBody2D" parent="objects"]
+position = Vector2(52, -16)
+script = ExtResource("5_rgb64")
+newscene = "masters_chamber"
+entrypoint = Vector2(136, 196)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/door"]
+shape = SubResource("RectangleShape2D_dajh2")
+
+[node name="Sprite2D" type="Sprite2D" parent="objects/door"]
+texture = ExtResource("6_pc4f8")
+region_enabled = true
+region_rect = Rect2(48, 160, 16, 32)
+
+[node name="desk" type="StaticBody2D" parent="objects"]
+position = Vector2(94, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/desk"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_tmdfc")
+
+[node name="Sprite2D" type="Sprite2D" parent="objects/desk"]
+texture = ExtResource("4_g2lgp")
+region_enabled = true
+region_rect = Rect2(213, 159, 28, 17)
+
+[node name="hello_world" type="CharacterBody2D" parent="."]
+position = Vector2(94, -6)
+script = ExtResource("7_cq55x")
+enemy_res = ExtResource("8_fomju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hello_world"]
+z_index = 1
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_2fhwk")
+
+[node name="Sprite2D" type="Sprite2D" parent="hello_world"]
+top_level = true
+position = Vector2(96, -6)
+texture = ExtResource("4_g2lgp")
+region_enabled = true
+region_rect = Rect2(300, 306, 18, 14)
+
+[node name="player" parent="." instance=ExtResource("9_p8h1c")]
+position = Vector2(97, 37)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+visible = false
+zoom = Vector2(4, 4)
