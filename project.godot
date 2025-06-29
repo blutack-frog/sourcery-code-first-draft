@@ -22,6 +22,7 @@ inventory="*res://scripts/Inventory System/Inventory.gd"
 skillbook="*res://scripts/Skills System/SkillBook.gd"
 SaveManager="*res://scripts/SaveManager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+globalvars="*res://scripts/globalvars.gd"
 
 [editor]
 

@@ -57,10 +57,10 @@ func _physics_process(delta: float):
 func _process(delta: float) -> void:
 	var is_walking
 	if moved_by_dialogue == true:
-		is_walking = true
+		is_walking = 1
 		if position.distance_to(dialogue_destination) < 10:
 			moved_by_dialogue = false
-			is_walking = false
+			is_walking = 0
 		elif moved_by_dialogue:
 			velocity = position.direction_to(dialogue_destination).normalized() * SPEED
 		play_anim(is_walking)
@@ -78,6 +78,9 @@ func play_anim(mvmt_code):
 	else:
 		anim.flip_h = true
 	anim.play(animations[mvmt_code][dir])
+
+		
+	
 
 
 func walk(dest: Array[int]):

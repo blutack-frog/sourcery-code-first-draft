@@ -36,8 +36,7 @@ Teacher: Shall we begin your first lesson?
 	set globalvars.has_asked_for_lesson = true
 	do get_object("teacher").walk([241,72])
 	[wait=0.2]
-	do player.set_dest([224,70])
-	do player.walk()
+	do player.walk([224,70])
 	[wait=3]
 	=> at_shelf
 	#they walk to the bookcase and so do you
