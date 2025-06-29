@@ -86,8 +86,15 @@ func execute_code(inputs:Array[String]):
 			to_pass.append(inputs[i])
 		else:
 			to_pass.append("0")
-	OS.execute("python",to_pass,output,true)
+	
+	var operating_system: String = OS.get_name()
+	print(operating_system)
+	var python_type: String = "python"
+	if operating_system == "Linux": python_type = "python3"
+	
+	OS.execute(python_type,to_pass,output,true)
 	var to_show:String = output[0]
+	print(output[0])
 	
 	if  to_show.begins_with("Traceback"):
 		to_show = strip_error(to_show.split("\r\n"))

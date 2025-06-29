@@ -26,12 +26,12 @@ bg_color = Color(0.678944, 0.678944, 0.678944, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcggw"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8h70"]
+bg_color = Color(0.157087, 0.120158, 0.393696, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tghb0"]
 
 [sub_resource type="CodeHighlighter" id="CodeHighlighter_4pwex"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8h70"]
-bg_color = Color(0.157087, 0.120158, 0.393696, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pwto"]
 bg_color = Color(0.140447, 0.140447, 0.140447, 1)
@@ -243,55 +243,6 @@ grow_vertical = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_dcggw")
 text = "SKILLS"
 
-[node name="Code_Panel" type="Panel" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -255.0
-offset_top = -318.0
-offset_right = 256.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_tghb0")
-
-[node name="MarginContainer" type="MarginContainer" parent="Code_Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="CodeEdit" type="CodeEdit" parent="Code_Panel/MarginContainer"]
-layout_mode = 2
-theme_override_colors/background_color = Color(0.791999, 0.791999, 0.791999, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/caret_color = Color(0.140447, 0.140447, 0.140447, 1)
-placeholder_text = "#write your code here"
-caret_blink = true
-caret_multiple = false
-syntax_highlighter = SubResource("CodeHighlighter_4pwex")
-indent_automatic = true
-
-[node name="Button_Execute" type="Button" parent="Code_Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -70.5
-offset_top = 6.0
-offset_right = 70.5
-offset_bottom = 43.0
-grow_horizontal = 2
-text = "EXECUTE CODE"
-
 [node name="Enemy" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 5
@@ -410,6 +361,55 @@ horizontal_alignment = 2
 
 [node name="HealthDisplay" parent="Enemy/Enemy_Info_Panel/MarginContainer/VBoxContainer" instance=ExtResource("4_4y356")]
 layout_mode = 2
+
+[node name="Code_Panel" type="Panel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -255.0
+offset_top = -318.0
+offset_right = 256.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tghb0")
+
+[node name="MarginContainer" type="MarginContainer" parent="Code_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="CodeEdit" type="CodeEdit" parent="Code_Panel/MarginContainer"]
+layout_mode = 2
+theme_override_colors/background_color = Color(0.791999, 0.791999, 0.791999, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0.140447, 0.140447, 0.140447, 1)
+placeholder_text = "#write your code here"
+caret_blink = true
+caret_multiple = false
+syntax_highlighter = SubResource("CodeHighlighter_4pwex")
+indent_automatic = true
+
+[node name="Button_Execute" type="Button" parent="Code_Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.5
+offset_top = 6.0
+offset_right = 70.5
+offset_bottom = 43.0
+grow_horizontal = 2
+text = "EXECUTE CODE"
 
 [node name="TestsPanel" type="Panel" parent="."]
 offset_left = 929.0
